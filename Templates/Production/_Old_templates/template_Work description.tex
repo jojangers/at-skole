@@ -1,0 +1,54 @@
+\input{preamble}
+\def \companyName		{Example }
+\def \ticketNumber		{Ticket 999}
+\def \overskrift		{\textbf{}}	% Keep empty
+
+\def \aftaltPris		{520 }
+\def \normalPris		{650 }
+\def \weekendPris		{975 }
+% Free
+\def \freeTimer			{ }
+\def \afregningFree		{\freeTimer timer afregnes til takst, 0,- +MVG pr. time.}
+
+% Aftalt
+\def \aftaltTimer		{ }
+\def \afregningAftalt	{\aftaltTimer timer afregnes til aftalt takst, \aftaltPris +MVG pr. time.}
+
+% Normal
+\def \normalTimer		{ }
+\def \afregningNormal	{\normalTimer timer afregnes til normal takst, \normalPris +MVG pr. time.}
+
+% Weekend
+\def \weekendTimer		{ }
+\def \afregningWeekend	{\weekendTimer timer afregnes til arbejde udenfor normal arbejdstids takst, \weekendPris +MVG pr. time.}
+
+\def \afregning			{\afregningNormal}		% \afregningNormal \\ \afregningWeekend
+
+\begin{document}
+\begin{center} \vspace*{10mm} \large \ticketNumber \normalsize \end{center}
+\thispagestyle{SYNACKSALEFOOTER} 
+\vspace*{-30mm}
+\begin{tikzpicture}
+\node {\includegraphics[width=0.2\textwidth] {synack.png}};
+\end{tikzpicture}
+\vspace*{10mm}
+\section*{Opgavebeskrivelse}
+	Description
+
+\section*{Udført arbejde}
+\begin{itemize}
+	\item work
+	
+\end{itemize}
+
+\section*{Afregning}
+\afregning
+
+
+\vfill
+\begin{center}
+	{\today}
+	\vspace*{1cm}
+\end{center}
+
+\end{document}

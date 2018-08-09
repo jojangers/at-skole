@@ -1,0 +1,73 @@
+%%%%%% REQUIREMENTS!!!! 
+% langXX.tex has to be compied alongside the main document, otherwise it wount comile!
+% the lang file needed is the one in pointed at in \input{LangXX}, currently at line 20
+% Example of how to set marks in the squares: https://tex.stackexchange.com/questions/247681/how-to-create-checkbox-todo-list#313337
+%%%%%% /REQUIREMENTS!!!!
+\input{preamble}
+
+\DeclareUnicodeCharacter{00A0}{~}		% Needed for some obscure reason
+\usepackage{color}
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+
+
+\def \companyName		{<++>}	% Name of company that the check is done for.
+\def \overskrift		{\textbf{\txtOverskrift}}
+\def \TestMachineName	{\textit{<++>}} % Name of VM that's being tested
+
+
+\input{LangDK}					% Has to be inputted after global variables, to allow us to use those.
+\begin{document}
+	\vspace*{10mm} \large
+	\thispagestyle{SYNACKSALEFOOTER}
+\begin{center}
+	\begin{tabular}{L{80mm}R{80mm}}
+	\textbf{\txtKunde:} \companyName & \textbf{\txtDato:} <++> / <++> - 201<++> \\	
+    \textbf{\txtTestObjekt:} \TestMachineName
+
+\end{tabular}
+\end{center}
+\section{\secScenarie}
+\textbf{Full VM revcovery}
+\begin{todolist}
+	\item[\cmark] \txtScenarieA		% Demo of cmark and xmark in a todolist
+	\item[\xmark] \txtScenarieB
+	\item[\xmark] \txtScenarieC
+\end{todolist}
+\hrule
+
+\section{\secWork}
+\begin{todolist}
+	\item \txtWorkA
+	\item \txtWorkB
+	\item \txtWorkC
+	\item \txtWorkD
+	\item \txtWorkE
+	\begin{todolist}
+		\item \txtWorkF
+		\item \txtWorkG
+		\item \txtWorkHvemSynesDetErEnGodIdeAtBrugeBogstaverTilSekvensForNogetManLetSkalKunneUdviklePaaDerudoverKanViIkkeBliveEnigeOmDetSkalVaereDanskEllerEngelskTilNavngivningAfVariabler\?
+	\end{todolist}
+	\item \txtWorkH
+	\item \txtWorkI
+\end{todolist}
+\hrule
+
+\section{\secKonklution}
+\txtSuccess	
+\begin{todolist}
+	\item \txtJa
+	\item \txtNej
+	>>
+	\textit{\txtNejTicket} Ticket nr: \underline{<++>}
+\end{todolist}
+\txtKommentar: \underline{<++>}
+\vfill
+\noindent
+{\txtStikord}: \underline{<++>}
+\vfill
+\noindent
+\txtDoneBy: \underline{<++>}
+\vfill
+\end{document}

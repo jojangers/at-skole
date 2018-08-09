@@ -1,0 +1,362 @@
+\input{preamble}
+\input{preamble_tilbud}
+\usepackage{shorttoc}
+\usepackage{tocloft}
+%\usepackage[toctextentriesindented]{tocstyle}
+
+\renewcommand\headrule{
+	\begin{minipage}{1\textwidth} \vspace*{0mm} 
+		\centering \Huge \companyName \normalsize \vspace*{1mm}
+		\hrule width \hsize \kern 1mm \hrule width \hsize height 2pt 
+		\vspace*{2mm} \centering \large \overskrift \normalsize \vspace*{5mm}	
+	\end{minipage}
+}
+\geometry{
+	top=25mm,
+}
+
+\def \overskrift    {}          % Overskrift er sat i CompanyName
+\def \CompanyName   {Sáttmáli um \\ vøru- og tænastuveiting} % Ville have overskriften over barren..
+\def \companyName   {\CompanyName}
+
+%%%%%%%%%
+% Sáttmála variablar
+\def \Kunden		{Synack}
+\def \KundenPf		{ }
+\def \KundenAddr	{Kastalag 7}
+\def \KundenPost	{FO-470 Eiði}
+\def \KundenVTAL	{606553}
+\def \KundenKontakt	{Heðin Ejdesgaard}
+\def \KundenUnderskriftsLokation	{\KundenAddr}
+
+\def \SynackUnderskriftsLokation	{\KundenAddr}
+\def \SynackUnderskriver			{Heðin Ejdesgaard Møller}
+
+\def \dato				{15. Apríl 2016}
+\def \datoBindingA		{31. Oktober 2016}
+\def \bindingsperiodeA	{6 }
+\def \bindingsperiodeB	{3 }
+
+\def \PPESXiCount		{6}
+\def \PVvCSACount		{1}
+\def \PVHATestHours		{4}
+\def \PVHATestCountMdr	{1}
+\def \PPVeeamSrvCount	{2}
+\def \PPVeeamSrvHours	{4}
+\def \PPVeeamTestHours	{2}
+\def \PPVeeamTestCount	{1}
+\def \PVVMCount			{90}
+\def \PPESXiHoursOneG	{3.5}
+\def \PPESXiHoursTenG	{2}
+
+\def \vmWinUpdCount		{45}
+
+\def \timeTal			{21}
+\def \brafeingis		{8 }
+
+\def \timePris		{650}
+\def \timeRabat		{0.75} 		% 1-0.procentsats
+\begin{document}
+\begin{titlepage}
+	\vspace*{-20mm} \large
+	\begin{tikzpicture} 
+		\node {\includegraphics[width=0.2\textwidth] {synack.png}};
+	\end{tikzpicture}
+\author{Heðin Ejdesgaard Møller}
+\thispagestyle{SYNACKSALEFOOTER}
+\vspace{25mm}
+\begin{center}
+	\textbf{Millum undirritaðu}
+\end{center}
+\begin{minipage}{0.32\textwidth}
+	\begin{center}
+	  	Synack Sp/f		\\
+	  	Kastalag 7		\\
+	  	FO-470 Eiði		\\
+	  	V-Tal: 606553	\\ \vspace{3mm}
+	  	Hereftir nevnt:	\\ Veitarin ella Synack
+	\end{center}
+\end{minipage}
+\begin{minipage}{0.32\textwidth}
+	\begin{center}
+		og
+	\end{center}
+\end{minipage}
+\begin{minipage}{0.32\textwidth}
+	\begin{center}
+	   	\Kunden\KundenPf			\\
+	   	\KundenAddr		\\
+	   	\KundenPost		\\
+	   	V-Tal: \KundenVTAL		\\ \vspace{3mm}
+	   	Hereftir nevnt:\\ Kundin
+	\end{center}
+\end{minipage}
+
+\vspace{25mm} 
+\noindent
+verður gjørdur hesin sáttmáli um sølu, umsiting og viðlíkahaldi av VMware vSphere, Veeam B\&R og tilhoyrandi amboð. \\ \\
+Hetta skjal og viðheftu skjøl: \\
+\textbf{Skjal A: Veitingin} \\
+\textbf{Skjal B: Kostnaðurin og gjaldingin} \\
+\textbf{Skjal C: Vanligu treytirnar} \\ \\
+ið eru partur av hesum sáttmála, útgreina nærri, hvør veitingin er, hvør kostnaðurin er, hvussu  goldið verður og hvørjar treytirnar eru. \\ \vspace*{15mm}
+
+\noindent
+\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\SynackUnderskriftsLokation, Tann:\underline{\hspace{4mm}} / \underline{\hspace{4mm}} - 201\underline{\hspace{2mm}}	\\ \vspace{5mm}
+		
+		\underline{\hspace{62mm}}	\\
+		Synack Sp/f \\
+		\SynackUnderskriver \\
+	\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	\begin{center}
+		\SynackUnderskriftsLokation, Tann:\underline{\hspace{4mm}} / \underline{\hspace{4mm}} - 201\underline{\hspace{2mm}}	\\ \vspace{5mm}
+		
+		\underline{\hspace{62mm}}	\\
+		\Kunden \\
+		\KundenKontakt \\
+	\end{center}
+\end{minipage}
+\end{titlepage}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\newpage
+\tableofcontents
+%\vspace{20mm}
+
+%\vfill
+\newpage
+
+%\textbf{\huge Eftirmeting \\ Prísbrýting skal samsvara við uppsagnartíð... \\ Hvordan er det med ønske om ændringer af kontrakten fra en af parterne? så som tilføjelse af punkter til Skjal A}
+\begin{center}
+	\addcontentsline{toc}{section} {§1 - Veitingin}
+	\textbf{§1 \\ Veitingin}
+\end{center}
+Veitarin og kundin hava við hesum sáttmála gjørt avtalu um, at veitarin átekur sær arbeiðið fyri kundan, so sum framgongur av hesum sáttmála, \textbf{skjal A}. \\ \\
+Veitarin ger arbeiðið sum sjálvstøðugt vinnurekandi, og eru partarnir sostatt ikki á annan hátt knýttir at hvør øðrum sum ávikaavist arbeiðsgevari/arbeiðstakari. Veitaranum er ikki heimilað at gera avtalur vegna kundan ella á annan hátt áleggja hesum skyldur. \\ \\
+Veitarin skal greiða arbeiði sítt væl úr hondum, og uttan tilvitað at gera seg inn á rættindini hjá triðjaparti og annars so, at hetta er í samsvari við galdandi lóggávu. 
+
+\begin{center}
+	\addcontentsline{toc}{section} {§2 - Kostnaðurin}
+	\textbf{§2 \\ Kostnaðurin}
+\end{center}
+Kostnaðurin og gjaldsfreist, sí \textbf{Skjali B}.
+
+\begin{center}
+	\addcontentsline{toc}{section} {§3 - Tagnarskylda og ognarrættur}
+	\textbf{§3 \\ Tagnarskylda og ognarrættur}
+\end{center}
+Veitarin hevur tagnarskyldu og hevur ikki loyvi at lata upplýsningar, íð fingnir eru í samband við arbeiði fyri kunda, víðari til triðjapart ella brúka hesar á annan hátt enn í arbeiði sínum fyri kundan. \\ \\
+Henda skylda er tó ikki galdandi fyri upplýsingar, íð eru alment atgongiligir, eru fingnir ígóðari trúgv frá kundanum at nýta, ella sum eru neyðugir at víðarigeva sambært lóggávu. \\ \\
+Kundin hevur tagnarskyldu, og kann ikki víðarigeva upplýsingar frá hesum sáttmála, herundir prísir ella aðrar upplýsingar, íð eru givnir í trúnaði.
+
+\begin{center}
+	\addcontentsline{toc}{section} {§4 - Rakstrarólag}
+	\textbf{§4 \\ Rakstrarólag}
+\end{center}
+Báðir partar hava skyldu at gera sítt, til tess at finna møguligar feilir og at rætta teir. \\ \\
+Kundin skal fyri egna rokning geva veitaranum atgongd til starvsfólk hjá kundanum og upplýsingar annars, í tann mun hetta er neyðugt, fyri at veitarin kann røkja arbeiði sítt. \\ \\
+Veitarin kann ikki ábyrgdast fyri rakstrarólagi ella skaðum, hvørki beinleiðis ella óbeinleiðis fylgiskaðum, sum triðjapartsveitari (herundir undirveitari) ella kundin hevur ábyrgdina av, eru íkomnir. Hetta kann umfata, men er ikki avmarkað til ólag á internetsambandi, ólagi á streymi o.ø.
+
+\begin{center}
+	\addcontentsline{toc}{section} {§5 - Ábyrgdarfráskriving og -avmarking}
+	\textbf{§5 \\ Ábyrgdarfráskriving og -avmarking}
+\end{center}
+Veitarin ábyrgdast sambært vanligum rættarreglum á økinum í tann mun, avtalaðar avmarkingar ikki eru gjørdar í hesi avtalu. \\ \\
+Veitarin ábyrgdast tó ongantíð, líkamikið um talan er um simpult ella groft ósketni, fyri óbeinleiðis tapi ella av fylgiskaðum, herundir, men ikki avmarkað hertil, rastrartap, avancutap, miss av dáta, goodwill o.a. \\ \\
+Ábyrgdaravmarking er galdandi fyri eitthvørt krav um produktábyrgd, í tann mun lógarásetingar ikki eru ein forðing fyri ábyrgdaravmarking. \\ \\
+Samlaða endurgjaldskravið sum kundin kann krevja frá veitaranum er undir øllum viðurskiftum avmarkað til ein upphædd svarandi til virðið á tí einstøku veitingini, og í mesta lagi kr.100.000, sí nærri \textbf{skjal C}. \\ \\
+
+\begin{center}
+	\addcontentsline{toc}{section} {§6 - Licensir og broytingar}
+	\textbf{§6 \\ Licensir og broytingar}
+\end{center}
+Veitarin tekur onga ábyrgd av lisensum, sum kundin brúkar. Um broytingar skulu gerast, íð kunna ávirka raksturin av tænastuni, eigur kundin at leggja hetta so til rættis, at veitarin hevur møguleika at hava fólk tøkt, tá ið broytingarnar vera gjørdar.
+
+\begin{center}
+	\addcontentsline{toc}{section} {§7 - Gildiskoma og uppsøgn}
+	\textbf{§7 \\ Gildiskoma og uppsøgn}
+\end{center}
+Sáttmálin er bindandi frá undirskriving og \bindingsperiodeA mánaðar fram til \datoBindingA. \\ \\
+Hereftir kann hann av báðum pørtum uppsigast frá tí fyrsta í komandi mánaði, við \bindingsperiodeB mánaða uppsagnartíð. \\ 
+Uppsøgnin skal vera skrivlig.
+
+\begin{center}
+	\addcontentsline{toc}{section} {§8 - Brot á sáttmálan}
+	\textbf{ §8 \\ Brot á sáttmálan}
+\end{center}
+Brot á sáttmálan, sum er at rokna sum groft mishald av hesum sáttmála, eitt nú um ikki verður goldið sambært sáttmálanum, kann hava við sær uppsøgn av sáttmálanum uttan freist. \\ \\
+Verður sáttmálin mishildin av orsøkum íkomnar av viðurskiftum, sum partarnir ikki hava ávirkan á, herundir men tó ikki avmarkað til, verkfall, lockout, streymslit, náttúruvanlukkur, sjúku, epidemi, kríggj, uppreistur ella eld, hava partarnir ikki skyldu til at gjalda ella endurgjalda fyri skaða, ið er uppstaðin av hesum mishaldi.
+
+\begin{center}
+	\addcontentsline{toc}{section} {§9 - Vanligar veitingar- og sølutreytir hjá Synack}
+	\textbf{§9 \\ Vanligar veitingar- og sølutreytir hjá Synack} \\
+\end{center}
+Vanligar veitingar- og sølutreytir síggjast, sum eru galdandi um ikki annað er avtalað, sí \textbf{Skjal C}.
+
+\begin{center}
+	\addcontentsline{toc}{section} {§10 - Ósemjur}
+	\textbf{§10 \\ Ósemjur}
+\end{center}
+Ósemjur, sum ikki kunnu loysast millum partarnar, skulu loysast í rættinum. Rætturin skal vera heimahoyrandi í Føroyum og hann lagar seg til føroyska lóggávu.
+
+\newpage
+\section{Skjal A - Veitingin}
+\begin{itemize}
+
+\subsection*{vSphere umsiting}
+	\item Fylgjandi vSphere services verða uppdateraðar / dagførðar eftir hesum sáttmála. \\
+	- ESXi hosts							\\
+	- vCenter Server Appliance (vCSA)		\\
+	- Platform Service Controller (PSC)		\\
+	- VMware Update Manager (Windows VM)
+	
+\subsection*{Veeam B\&R umsiting}
+	\item Fylgjandi services verða uppdateraðar / dagførðar eftir hesum sáttmála.	\\
+	- Viðlíkahald av Veeam B\&R.		\\
+	- Halda eyga við backup og rætta møguligar trupuleikar í samband við backup.	\\
+	- Windows update á hnpp-veeam01.	\\
+	- Windows update á hnpv-veprxy1.	\\
+	- Halda eyga við VM diskpláss og rætta møguligt plásstrot.
+	
+\subsection*{vSphere HA test}
+	\item HA test verður gjørd í samband við VMware \href{kb.vmware.com/kb/2056634}{\textit{KB2056634}}\\
+	- vMotion allar VM's av einum hosti. \\
+	- Tendra HA Royndar VM. \\
+	- Logga á servara switch'irnar, ið ESXi servarin brúkar til mgmt ferðslu. \\
+	- Shutdown mgmt portur í SS'ini. \\
+	- Kanna um royndar VM'in kemur online á einum øðrum hosti.
+	
+\subsection*{Veeam B\&R Restore test}
+	\item Koyra backup av royndar VM.
+	\item Sletta royndar VM frá vSphere.
+	\item Gerða Instant-VM recovery.
+	\item vMotion Instant-VM recovery út á eit datastore.
+
+\subsection*{Windows Update}
+	\item Dagføra windows á VM servarnir, eftir nærri avtalu við \KundenKontakt, upp til 50 VM's.
+\end{itemize}
+
+
+\newpage
+\section{Skjal B - Kostnaður og gjaldstreytir}
+Kostnaðurin, verður goldin ávikavist sum eitt fast mánaðarligt gjald og/ella sum rokningsarbeiði fyri eykatænastur, gjørdar sambært avtalu, soleiðis: \\ \\
+\textbf{1. Fast mánaðarligt gjald}, u/mvg, er fyri hesa tænastu hetta: \vspace*{3mm}
+
+\begin{center}
+	\begin{spreadtab}{{tabular}{|l|l|r|}} \hline 
+		@ \textbf{Umsiting}			& @ \textbf{Ymiskt}			& @ \textbf{Upphædd pr. mðr.}	\\ \hline
+		@ vSphere umsiting			&						& (\PPESXiCount+\PVvCSACount)*\PPESXiHoursTenG*\timePris*\timeRabat \\
+		@ Veeam B\&R umsiting		&						& \PPVeeamSrvHours*\timePris*\timeRabat								\\
+		@ vSphere HA test			&						& (\PVHATestHours*\PVHATestCountMdr)*\timePris*\timeRabat			\\
+		@ Veeam B\&R Restore test	&						& (\PPVeeamTestHours*\PPVeeamTestCount)*\timePris*\timeRabat		\\ \hline
+		@ Konsulent tímar pr. mdr.	& @ Tímar: \timeTal		& \timePris*\timeRabat*\timeTal										\\ \hline
+		@ Windows Update			& @ VM's: \vmWinUpdCount	& \vmWinUpdCount*0.3*\timePris*\timeRabat						\\ \hline
+		@ Samanlagt					&						& sum(c2:c7)														\\ \hline	
+	\end{spreadtab}	
+\end{center}
+
+\noindent
+\subsubsection*{2. Rokningsarbeiði gjørt samb. tímauppgerð er hetta: }
+Innanfyri vanliga arbeiðstíð: 650 kr. um tíman u/mvg. \\
+Uttanfyri vanliga arbeiðstíð: 975 kr.  um tíman u/mvg. \\ \\
+Tá umsitingar avtala er gjørd, verður latið \textbf{20\%} í avslátturi av tíma takstinum.
+
+\subsubsection*{Gjaldsfreist og renta (fyri sáttmála- og/ella rokningsarbeiði)}
+Fasta mánaðarliga gjaldið smbrt. sáttmála fellur til gjaldingar við arbeiðsbyrjan, og verður goldið \underline{forrút} hvønn mánaða í seinasta lagi tann 1. í mánaðinum. \\ \\
+Rokningsarbeiði fellur til gjaldingar, tá arbeiðið er gjørt, og 14 dagar eftir at kravið við framsendari rokning er uppgjørt. \\ \\
+Er gjaldkomin peningur ikki goldin 14 dagar eftir fallsdag, verður renta stór 1,5\% um mánaðin at rokna frá hesum degi, umframt at goldið verður 100 kr. í ómaksgjaldið pr.rykkjara. \\
+
+\subsubsection*{Prísbroytingar}
+Fyrivarni verður tikið fyri prísbroytingum, sí \textbf{Skjal C, pkt. 4}. \\ \\
+Vit tilskila okkum rætt til at broyta ymisk gjøld, eisini \underline{í avtalaðum sáttmálum}. Tá er okkara fráboðanartíð 1 mánað, sí gjøllari \textbf{Skjal C, pkt.4} . \\
+\newpage
+
+
+\section{Skjal C - Vanligar sølu- og veitingartreytir hjá Spf. Synack}
+\subsection{Avtalan}
+Tað ítøkiliga tilboðið frá Spf. Synack er bert galdandi, um tað er skrivligt. Tilboðið stendur við í 30 dagar, um ikki annað framgongur av hesum. \\ \\
+Fyrivarni verður tikið fyri smærri broytingum, íð kunnu koma fyri í tíðini fram til at vøran/tænastan verður latin, tó so at Synack innistendur fyri eini í minsta lagi samsvarandi vøru/tænastu. Broytingar í einstaka tilboðnum ella í ordraváttanin skulu verða skrivliga góðtiknar av Synack. Góðtøka av tilboði er bert bindandi, um Synack skrivliga hevur góðtikið hetta. \\ \\
+Um Synack uttan at skrivligur sáttmáli er gjørdur, ger arbeiði fyri kunda, eru vanligar rættarreglur galdandi og við teimum treytum, sum framganga í hesum skjali. Gjaldskylda kundans er tó treytað av, at kundin var vitandi um ella átti at vitað at arbeiði var gjørt, ella á annan hátt hevur góðtikið gjørda arbeiði ella gjørt nýtslu av tí. \\ \\
+Broytingar í gjørdum skrivligum sáttmála skulu verða skrivligar fyri at hava gildið, og skulu tilskilast sum broytingar í verandi sáttmála. Í hesum viðfangi hevur tann ábyrgdarhavandi fyri KT-økinum ella tann sum Synack vanliga samskiftir við heimild at gera bindandi avtalur vegna kundan. \\ \\
+Tær í hesum skjali galdandi ásetingar eru óbroyttar galdandi eisini fyri veitingar sum gjørdar verða í tilknýti og sum broytingar til ein verandi sáttmála.
+
+\subsection{Vøran og tænastan}
+Í sáttmálanum verður útgreinað tað, íð veitt verður. Um serligur tørvur er á íbinding/integrering í verandi útbúnaði/uppsetingar v.m., skal Synack skrivliga hava fingið fráboðan um hetta, og skal tað vera tilskilað sum ein partur í sáttmálanum. Ábyrgdin hjá Synack er her avmarkað til teir upplýsingar, íð fingnir eru frá kundanum og sum framganga í sáttmalanum.
+
+\subsection{Skyldur partanna}
+Báðir partar gera sítt til at halda gjørda avtalu. \\ \\
+Synack skal:
+\begin{itemize}
+	\item Samstarva við kundan til tess at halda gjørdar avtalur.
+	\item Syrgja fyri at hava skikkað fólk at átaka sær avtalaða arbeiðið.
+	\item Arbeiða samsvarandi góðum KT-siði.
+\end{itemize} \vspace{5mm}
+Kundin skal hava tøkt fólk og útbúnað, íð krevjast fyri at Synack kann røkja sína uppgávu. \\ \\
+Kundin skal:
+\begin{itemize}
+	\item Samstarva við Synack til tess at halda gjørdar avtalur.
+	\item Syrgja fyri at hava skikkað fólk á staðnum at taka ímóti og taka avgerðir í samband við at arbeiði	sambært avtaluni fer í gongd og verður gjørt.
+	\item Syrgja fyri rímiligum atkomuviðurskiftum/hølisviðurskiftum.
+	\item Syrgja fyri, at ney ðug trygdaravrit/backup eru gjørd, áðrenn Synack fær atgongd til edv-skipanir kundans. Trygdaravrit skulu vera gjørd av øllum, eisini møguligum dáta, íð Synack áður hevur havt um hendi.
+	\item Syrgja fyri neyðugari edv-trygd, so skaði ikki stendst av ella gerst minst møguligur elvdur av álopum á KT umhvørvið.
+\end{itemize}
+
+\subsection{Kostnaður og gjaldstreytir}
+Allir prísir í tilboðnum ella í ordaváttanini eru uttan mvg., uttan installatión og trygging, um ikki annað er avtalað. Fyrivarni verður tikið fyri prísbroytingum, íð koma orsakað av broyttum valutakursum, avgjalds- og tryggingarprísum, broyttum farmagjaldskostnaði ella innkeypskostnaði. Tá kann Synack broyta kostnað sín samsvarandi. \\ \\
+Synack kann frá tí degi at vøran/tænastan er latin krevja kostnaðin goldnan. Gjaldsdagurin sæst á rokningini. \\ \\
+Um ikki annað er avtalað, so verður arbeiðið gjørt sum rokningsarbeiði grundað á uppgjørda tímanýtslu. \\
+Er eitt fast gjald avtalað, fevnir hetta ikki um arbeiði uttanfyri vanliga arbeiðstíð ella fyri positiv útlegg so sum fyri transport ella uppihald. Er ósemja um fasta gjaldið, og kundin ynskir at steðga arbeiðinum, so fær Synack gjald fyri gjørt arbeiði, og hevur eisini krav uppá tímagjald roknað fyri yvirtíðararbeiðið. \\ \\
+Synack sendir rokning tá arbeiðið er gjørt, og er gjaldsfreistin 14 dagar, frá rokningsdegi. Verður goldið ov seint, verður renta kravd frá gjaldsdegi við 1,5\% mánaðarliga. Herumframt verða kravdar kr. 100,- fyri hvørt rykkjaragjald. Annar kostnaður íð legst afturat fyri at fáa skuld goldna, rindar kundin eisini.
+
+\subsection{Dokumentatión}
+Synack skjalprógvar ikki mótvegis kundanum fyri gjørt tænastuarbeiði. Tá gjørdur sáttmáli steðgar, hevur kundin ikki rætt til dokumentatiónina frá Synack, uttan at serlig avtala er herum. \\
+Tá vøra verður latin, fylgja vanliga við vegleiðingar og upplýsingar um vøruna.
+
+\subsection{Hvat verður latið og nær}
+Í avtaluni partarnir gera, sæst, hvat verður selt og nær tað skal handast/leverast. Er onki avtalað, kunnu báðir partar skrivliga við hóskandi freist boða frá, nær avtalan í seinasta lagi eigur at verða sett í verk. Og annars er vanligar rættarreglur á økinum galdandi.
+
+\subsection{Seinkingar}
+Um annar av pørtunum ásannar at seinkingar verða, so áliggur tað hesum at boða hinum frá beinanvegin. \\
+Báðir partar hava tá skyldu í samstarvi at tryggja, at skaðaligu árinini av seinkingini gerast minst møgulig. \\ \\
+Um kundin hevur ábyrgdina av seinkingini, kann Synack krevja ásettar freistir broyttar ella útsettar, og annars umframt at krevja gjald fyri gjørt arbeiði krevja endurgjald fyri dokumenterað tap orsakað av seinkingini sambært vanligum endurgjaldsreglum. \\ \\
+Synack tilskilar sær rætt til við eini 2 daga freist at útseta ætlaðar veitinar, tó ikki meiri enn til 20 dagar íalt fyri samlaðu veitingina. Í slíkum førum, har útseting verður gjørd, kann kundin ikki gera galdandi misshald av sáttmálanum.
+
+\subsection{Serlig viðurskifti um ognarrætt og licensir}
+Synack varveitir ognarrættin til forritan íð Synack ger av sofware til kundan. Kundin hevur fullan brúksrætt hertil, samsvarandi licensin frá Synack. Annars hevur kundin skyldu at fylgja galdandi treytum fyri licensirnar, og annars galdandi rætti á økinum um upphavsrættindi. Synack innistendur fyri at tað sofware, íð Synack arbeiðir við, ikki Synack kunnugt ger seg inn á rættin hjá einum triðjaparti.
+
+\subsection{Reklamation og ábyrgd}
+Um tað leveraða ikki lýkur treytirnar í sáttmálanum , skal kundin beinanvegin boða frá hesum soleiðis:
+
+\subsubsection*{Tænastu-/konsulentveitingar}
+Kundin hevur skyldu at kanna um veitingin er í lagi, og um ikki so beinanvegin boða Synack frá, so at Synack hevur fingið hetta at vita innan ein mánaða frá levering. Kundin útvegar sjálvur testspecifikatiónir og tað áliggur Synack skjótast gjørligt at byrja at fáa rættlag á. Ber ikki til at fáa rættlag á, tað verið seg orsakað av slagnum av feili ella, tí at kostnaðurin gerst ov stórur, so skal Synack boða frá hesum. \\
+Partarnar gera av hvør loysnin skal vera, og eru galdandi rættarreglur á økinum galdandi.
+
+\subsubsection*{Hardware og standardsoftware}
+Evsta freist at gera vart við manglar er 1 ár. Innan fyri hesa freist krevst herumframt, at kundin, beinan- vegin veitingin er framkomin, kannar, um hon í lagi, og um ikki, so boðar frá alt fyri eitt. Synack avger, um hjálpast kann uppá mangulin ella um umlevering skal gerast - uttan so at talan er um ein so stóran feil at kundin kann siga upp avtaluna og krevja endurgjald í staðin. Eisini her verður víst til vanligu galdandi rættarreglurnar á økinum.
+
+\subsection{Ognarfyrivarni}
+Tað selda er selt er við ognarfyrivarni, íð merkir, at tað selda er ogn hjá Synack, til allur kostnaðurin fyri tað selda er goldin.
+
+\subsection{Ábyrgdaravmarking}
+Hvusu væl software virkar er skiftandi og velst um viðurskifti hjá kundanum, tað veri seg hard- og softwareviðurskifi, konfiguratión og annað, og átekur Synack sær ikki ábyrgd hesum viðvíkjandi. \\ \\
+Skyldan hjá Synack at rætta uppá feilir og órógv í egnum veitingum fevnir ikki um:
+\begin{itemize}
+	\item Feilir íð er íkomnir orsakað av at onnur enn Synack hava innstallerað vøruna, ella tí kundin hevur brúkt hesa saman við øðrum útbúnaði ella í øðrum samanhangi, so at hetta beinleiðis ella óbeinleiðis hevur ávirkað nýtsluna av tí latna.
+	\item Feilir orsakaðir av skeivari nýtslu, tað verið seg tí mannagongdir ikki eru fylgdar ella orsakað tørvandi	innliti ella ósketni hjá starvsfólki ella øðrum persónum.
+\end{itemize}
+Synack ábyrgdast ikki fyri brekum og manglum í vørum/veitinum hjá undirveitarum, og sum ikki eru fevnd av garanti hjá hesum. \\ \\
+Undir ongum umstøðum kann Synack ábyrgdast endurgjaldsskyldu/ella verða kravt eftir lutfalsligum avsláttri, fyri hægri upphædd enn einstaka avtalan snýr seg um, og í allar mesta lagi kr. 100.000 fyri eina avtalu. Upphæddin er at skilja sum tann størsta samlaða upphæddin, sum kann krevjast fyri øll tey samlaðu viðurskiftini, íð knýtt eru at eini og somu avtalu, og sum kundin metir seg hava krav um endurgjald/avsláttur til, og tað líkamikið um skuldin hjá Synack ábyrgdast á simplum ella grovum ósketnum grundarlagi. \\ \\
+Synack ábyrgdast ikki fyri óbeinleiðis tapi, fylgiskaðum og skaðum annars orsakaðir av útifrákomandi fysiskum ella elektroniskum álopum á KT umhvørvið, tað verið seg rakstrartapi, missi av dáta og útreiðslum til endurstovnan av hesum og heldur ikki tapi av vinningi e.ø. vinnuligum tapi, líkamikið um tað snýr seg um simpult ella groft ósketni.
+
+\subsection{Force majeure}
+Ongin av pørtunum ábyrgdast og krevast endurgjald fyri mishald av sáttmálanum, um orsøkin er viðurskifti sum hvørgin av pørtunum høvdu kunna roknað við, verið vitandi um, ella havt ávirkan á, herundir, men ikki avmarkað til verkfall, lockout, streymslit, nátturuvanlukkur, sjúku, epidemi, kríggj, uppreistur ella eld.
+
+\subsection{Dátuvernd og tagnarskyldu upplýsingar}
+Synack hevur tagnarskyldu og hevur ikki loyvi at lata upplýsingar, íð eru givnir í trúnaði víðari til triðjapart. Upplýsingar um kundan vera goymdir og/ella viðarigivnir sambært galdandi lógum um dátuvernd. Kundin hevur tagnarskyldu, og kann ikki víðarigeva upplýsingar, herundir prísir í hesum sáttmála ella upplýsingar, íð eru givnir í trúnaði.
+
+\subsection{Ósemjur}
+Ósemjur, sum partarnir ikki megna at loysa sínamillum, verða avgjørdar í Føroya Rætti, sambært føroyskari lóggávu.
+\end{document}

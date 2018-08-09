@@ -1,0 +1,50 @@
+\input{preamble}
+\input{preamble_tilbud}
+
+
+\def \overskrift    {Projekt XXX}         % Overskrift er sat i CompanyName
+\def \CompanyName   {Tilbuds forespørgsel} % Ville have overskriften over barren..
+\def \companyName   {\CompanyName}
+
+\begin{document}
+\rowcolors{2}{gray!15}{white}
+\author{Heðin Ejdesgaard Møller}
+\begin{center}
+    \thispagestyle{SYNACKSALEFOOTER}
+\end{center}
+\vspace*{30mm}
+\begin{tabular}{|l|l|l|}		\hline
+	\rowcolor{black!75}
+	\multicolumn{3}{|c|}{\head{3 nodes med følgende specs}}					\\ \hline
+	\rowcolor{black!35}
+	\textbf{Kategori}	& \textbf{Specs}	& \textbf{Kommentar}			\\ \hline
+	CPU					& 1*Xeon v4			& >=8core	 					\\
+	RAM					& 64GB DDR4			& Muligt at udvide til 256GB	\\ \hline
+	HDD interface		& NL-SAS, SATA eller NVMe	& NVMe er kun relevant på SSD'er	\\
+	HDD RAID kapasitet	& 2* HW RAID1 \& 15*JBOD	&						\\
+	HDD Form factor		& 2,5"				& 1,8" kan også bruges			\\
+	HDD OS				& 2* ~80GB			& Datacenter grade SSD'er, så som Intel S35X0 series 	\\
+	HDD DATA:			& 1* 150GB			& Intel S35\textbf{2}0 eller tilsvarende				\\
+						& 4* >2TB			& Mest cost-effective NL-SAS eller SATA spindles 		\\ \hline
+	NIC's				& 4*10Gbps			& SFP+							\\
+	IPMI				& Persistent remote console \& iso mount	&		\\
+	Garanti				& 3 år				&								\\ \hline
+	\multicolumn{3}{c}{}	\\
+	\rowcolor{black!75}
+	\multicolumn{3}{|c|}{\head{2 nodes med følgende specs}}					\\ \hline
+	\rowcolor{black!35}
+	\textbf{Kategori}	& \textbf{Specs}	& \textbf{Kommentar}			\\ \hline
+	CPU					& 2*Xeon v4			& >=8core	 					\\
+	RAM					& 128GB DDR4		& Muligt at udvide til 512GB 	\\ \hline
+	HDD RAID kapasitet	& 2* HW RAID1		& mirrored SD kan også bruges	\\
+	HDD Form factor		& 2,5" 				& Mirrored Sd og 1,8" er også OK\\
+	HDD OS				& 2* >=16GB			& skal være at finde på vmware's HCL \\ \hline
+	NIC's				& 4*10Gbps			& SFP+							\\
+	IPMI				& Persistent remote console \& iso mount	&		\\
+	Garanti				& 3 år				&								\\ \hline
+\end{tabular}
+
+\vspace{20mm}
+\noindent
+Som alternativ til de øverte specs, på 3 noder, så vil det være interassant at få en styk-pris på et SAN der er vmware certifiseret til "vMSC uniform mode" med en kapasitet på ~20TB og 3 års garanti.
+\end{document}

@@ -1,0 +1,145 @@
+\input{preamble}
+\input{preamble_landscape}
+\input{preamble_tilbud}
+
+\def \overskrift    {Tilbuds kravspec}          % Overskrift er sat i CompanyName
+\def \CompanyName   {Company} % Ville have overskriften over barren..
+\def \companyName   {\CompanyName}
+
+\begin{document}
+	\author{Heðin Ejdesgaard Møller}
+	\vspace*{0mm}
+	\begin{center}
+		\thispagestyle{SYNACKSALEFOOTER_DK}
+		\vspace*{-5mm}
+	\end{center}
+	
+	\def \diskKapasitet		{1800} 	%% Antal GB - http://www.seagate.com/gb/en/enterprise-storage/hard-disk-drives/enterprise-capacity-2-5-hdd/
+	\def \diskAntalOSDData	{20}	%% OSD's pr. chassis
+	\def \diskRatio			{5}		%% OSD til Journal ratio
+	\def \cpuGHzMulti		{2}		%% GHz muliplier, relative to OSD type... 5 = SSD's, 2 = 10K, 1 = NL etc. 
+	\def \minQD				{890}	%% min. Queue depth for RAID controller
+	\def \chkLength	{45}
+	\begin{flushright}
+		\underline{Tilbudsfrist: 17/05 - 2017 kl. 13:00} 
+		\vspace*{-5mm}
+	\end{flushright}
+	
+	\section*{Priser}
+	Det skal udfra tilbudet fremgå hvad prisen er for hver model samt en samlet pris, alt. incl.
+	
+	\section*{Leveringstid}
+	Det skal fremgå af tilbuddet hvad leveringstiden officielt er på komponenterne i tilbuddet, ved tilbuddets indlevering.
+	
+	\section*{Tilbudsformat}
+	Tilbuddet skal være i pdf format. \\
+	Når alle tilbud er kommet ind, så bliver de sammenlignet med denne kravspec.
+	
+	\section*{Levering}
+	Serverne skal leveres samlede, således at de er klar til rackmontering.
+	
+	\section*{Minimumskrav}
+	Følgende er minimums bestykning pr. chassis. \\
+	Såfremt afvigelser ønskes, skal disse anmodes via e-mail. \\
+	Opfyldes disse ikke, forbeholdes retten til se bort fra tilbuddet. \\
+	Tilbud der baserer sig på Dell eller Supermicro er foretrukket.
+	
+	\rowcolors{2}{gray!25}{white}
+	\begin{spreadtab}{{tabular}{|l|llr|}} \rowcolor{black!75}
+		@ \multicolumn{4}{|c|}{\head{Model 1}} 																				\\
+		\rowcolor{gray!50}
+		@ \textbf{Checkliste og bemærkninger}			& @ \textbf{Navn}		& @ \textbf{Lýsing}							& @ \textbf{data}	       	\\ \hline
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Krav eller option	&											& @ Krav						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Antal chassis		& @											& 3								\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Rack unit size		& @											& 1								\\ 
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ CPU					& @ E3-1220v5								& @ 1 stk.						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ RAM					& @ ECC										& @ 32 GB						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ PSU					& @ Redundant \& hotplug					& @ 2 stk.						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ RAID controller		& @ \multicolumn{2}{l|}{Dedikeret med 2GB cache og QD på min. \minQD}		\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @						& @ RAID funktionalitet						& @ raid1 og raid0				\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ OS SSD				& @ SSD, HW RAID1 netto kapasitet			& @120GB						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ DATA SSD			& @ Uden RAID, eller single disk RAID0		& @200GB, S3710 series			\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ NIC's				& @ 10Gbps SFP+								& @ 2*2							\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ IPMI				& @ \multicolumn{2}{l|}{\textbf{Persistent ISO mount \& Console access}}	\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Garanti				& @ 24/7 support							& @ 3 år						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Rails 				& @ \multicolumn{2}{l|}{Rails til $\square$ rack huller skal medfølge}		\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Kabel arme			& @ \multicolumn{2}{l|}{Kabel arme der passer til standard 19" rack og ovenstående rails skal medfølge.}	\\
+		\rowcolor{black!75}
+		@ \multicolumn{4}{|c|}{\head{Model 2}} 																				\\
+		\rowcolor{gray!50}
+		@ \textbf{Checkliste og bemærkninger}			& @ \multicolumn{1}{l|}{\textbf{Navn}}	& @ \textbf{Lýsing}							& @ \textbf{data}		        \\ \hline
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Krav eller option					&											& @ Krav						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Antal chassis						& 											& 3								\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Rack unit size						& 											& 2								\\ 
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Front hotplug 2,5" disk bays  		& @                               			& 24            				\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ CPU									& @ Xeon E5-2630v4							& @ 2 stk.						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ RAM									& @ ECC, DDR4 2400MHz						& @ 96 GB						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ PSU									& @ Redundant \& hotplug					& @ 2 stk.						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ RAID controller						& @ \multicolumn{2}{l|}{Dedikeret med 2GB cache og QD på min. \minQD}		\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @										& @ RAID funktionalitet						& @ raid1 og raid0				\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ OS diske, skal ikke sidde i fronten & @ Low performance 120GB SSD i HW RAID1    & 2                             \\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ DATA spindles						& @ 1,8 TB 10K hotplug                      & \diskAntalOSDData             \\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ DATA SSD'er  		             	& @ Intel S3710 - 200GB	hotplug				& [0,-1]/\diskRatio				\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ NIC's								& @ 10Gbps SFP+								& @ 3*2							\\
+		%	@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Raw kapasitet pr. node				& \diskKapasitet*0.93						& ([0,-4])*[-1,0]				\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ IPMI								& @ \multicolumn{2}{l|}{\textbf{Persistent ISO mount \& Console access}}	\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Garanti								& @ 24/7 support							& @ 3 år						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Rails 								& @ \multicolumn{2}{l|}{Rails til $\square$ rack huller skal medfølge}		\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Kabel arme							& @ \multicolumn{2}{l|}{Kabel arme der passer til standard 19" rack og ovenstående rails skal medfølge.}	\\
+		\hline
+	\end{spreadtab} \\
+	
+	\vspace{5mm}
+	\noindent
+	\begin{spreadtab}{{tabular}{|l|ll|r|}} \rowcolor{black!75}
+		@ \multicolumn{4}{|c|}{\head{Model 3}} 																	            \\
+		\rowcolor{gray!50}
+		@ \textbf{Checkliste og bemærkninger}			& @ \textbf{Navn}						& @ \textbf{Lýsing}							& @ \textbf{data}       		\\ \hline
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Krav eller option			&											& @ Krav						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Antal noder					& 											& 1								\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Rack unit size				& 											& 1								\\ 
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ CPU							& @ E3-1220v5								& @ 1 stk.						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ RAM							& @ ECC										& @ 32 GB    					\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ PSU							& @ Redundant \& hotplug					& @ 2 stk.						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ RAID controller				& @ Embedded eller dedikeret				&								\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @								& @ RAID funktionalitet						& @ raid1						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ OS SSD						& @ SSD, RAID1 netto kapasitet				& @120GB						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ NIC's						& @ 10Gbps SFP+								& @ 1*2							\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ IPMI						& @ \multicolumn{2}{l|}{\textbf{Persistent ISO mount \& Console access}}	\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Garanti						& @ 24/7 support							& @ 3 år						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Rails 						& @ \multicolumn{2}{l|}{Rails til $\square$ rack huller skal medfølge}		\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Kabel arme					& @ \multicolumn{2}{l|}{Kabel arme der passer til standard 19" rack og ovenstående rails skal medfølge.}	\\
+		\rowcolor{black!75}
+		@ \multicolumn{4}{|c|}{\head{Model 4}} 																		\\
+		\rowcolor{gray!50}
+		@ \textbf{Checkliste og bemærkninger}			& @ \textbf{Navn}						& @ \textbf{Lýsing}							& @ \textbf{data}	        	\\ \hline
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Krav eller option			&											& @ Option						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Antal noder					&											& 1								\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Rack unit size				&											& 1								\\ 
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ CPU							& @ E3-1220v5								& @ 1 stk.						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ RAM							& @ ECC										& @ 32 GB	    				\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ PSU							& @ Redundant \& hotplug					& @ 2 stk.						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ RAID controller				& @ \multicolumn{2}{l|}{Dedikeret med 2GB cache og QD på min. \minQD}		\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @								& @ RAID funktionalitet						& @ raid1						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ OS SSD						& @ SSD, RAID1 netto kapasitet				& @ 120GB						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ NIC's						& @ 10Gbps SFP+								& @ 2*2							\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ IPMI						& @ \multicolumn{2}{l|}{\textbf{Persistent ISO mount \& Console access}}	\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Garanti						& @ 24/7 support							& @ 3 år						\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Rails 						& @ \multicolumn{2}{l|}{Rails til $\square$ rack huller skal medfølge}		\\
+		@ $\square$\underline{\hspace*{\chkLength mm}}	& @ Kabel arme					& @ \multicolumn{2}{l|}{Kabel arme der passer til standard 19" rack og ovenstående rails skal medfølge.}	\\
+		\hline
+	\end{spreadtab}
+	
+	\pagebreak
+	
+	\section*{Cold spare}
+	En ekstra disk skal medgølde som cold spare. Disken skal være af samme serie og størrelse som DATA SSD'erne i Model 1 serverne.
+	
+	\section*{Spørgesmål mv.}
+	Spørgesmål mv. i forbindelse med dette tilbud skal rettes til: 
+	\vspace{2mm} \\
+	Heðin Ejdesgaard \\
+	Telefon: +298 77 11 10 \\
+	E-Mail: \href{mailto:hej@synack.fo}{\underline{hej@synack.fo}}.
+	
+\end{document}

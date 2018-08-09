@@ -1,0 +1,25 @@
+\def \NET{<++>}
+\def \HostPrefix{<++>}
+
+\subsection{LAN}
+\begin{tabular}{ll}
+	\rowcolor{black!75}
+	\head{Device}		& \head{IP}				\\
+	\multicolumn{2}{c}{\textbf{Infrastructure}}	\\ \hline
+	Network				& \NET.0/24				\\
+	Default GW			& \NET.1				\\
+	DNS					& \NET.10				\\
+						& \NET.1				\\
+	\hline
+	\multicolumn{2}{c}{\textbf{Static IP's}}	\\ \hline
+	apcfdfff8			& \NET.9(DHCP Reserved)	\\
+	\HostPrefix-dc01	& \NET.10				\\
+	\HostPrefix-sql01	& \NET.11				\\
+	\HostPrefix-app01	& \NET.12				\\
+%<++>	\HostPrefix-sftp02	& \NET.16(DHCP Reserved)\\
+	\hline
+	\multicolumn{2}{c}{\textbf{DHCP}}			\\ \hline
+	Scope				& \NET.1 to \NET.254	\\
+	Exclusion			& \NET.1 to \NET.100	\\
+	Exclusion			& \NET.200 to \NET.254	\\
+\end{tabular}

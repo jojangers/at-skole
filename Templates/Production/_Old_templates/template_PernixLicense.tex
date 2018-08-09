@@ -1,0 +1,45 @@
+\input{preamble}
+\input{preamble_landscape}
+\input{preamble_tilbud}
+
+\def \companyName {\textbf{Company}}
+\def \licenseToSale{PernixData Enterprise Promotion bundle}
+\def \SynackProfit				{1.0}
+\def \att {Contact Name}
+\def \road {}
+\def \post {}
+\def \dealExpire 				{30. Des. 2015}  %{\DayAfter[14]}
+\def \PernixLicense				{Enterprise license bundle with FVP and Architect}
+\def \PernixLicensePrice		{5000}				
+\def \PernixSubscription		{3 Year subscription}
+\def \PernixSubscriptionPrice	{2637}				
+\def \veeUpg			{2180}
+
+\newcommand{\specialCell}[2][c]{ %
+	\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+
+\begin{document}
+	\vspace*{-22mm}
+\begin{tikzpicture} 
+
+	\node {\includegraphics[width=0.2\textwidth] {synack.png}};
+\end{tikzpicture}
+\thispagestyle{SYNACKSALEFOOTER}
+
+\begin{center}
+	\noindent
+\section*{3 Árs Subscription}
+	\begin{spreadtab}{{tabular}{|l|c|l|r|r|}} \hline 
+		@ \textbf{Vøru nummar}				& @ \textbf{Antal}	& @ \textbf{Vørutekst}						& @ \textbf{Prísur pr. Eind} 				& @\textbf{Prísur u/mvg} 	\\ \hline
+		@ Enterprise bundle					& 4					& @ \specialCell{\PernixLicense}			& \PernixLicensePrice* \SynackProfit		& b2*d2						\\ \hline
+		@ Enterprise bundle subscription	& 4					& @ \specialCell{\PernixSubscription}		& \PernixSubscriptionPrice* \SynackProfit	& b3*d3						\\ \hline
+		@ \multicolumn{3}{r|}{}																					& @ Samlað Prís							& sum(e2:e4)				\\ \hhline{~~~==}
+	\end{spreadtab}
+\end{center}
+Prísirnir eru galdandi til \dealExpire \\
+
+\section*{Avrokning}
+Allir prísir eru uttan meirvirðisgjald. \\
+Gjaldsfreistin er 14 dagar. \\
+
+\end{document}

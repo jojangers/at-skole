@@ -1,0 +1,233 @@
+\documentclass{article}
+
+%% Essential
+\usepackage[T1]{fontenc}		% Font encoding.
+\usepackage[utf8]{inputenc}		% Char encoding.
+\DeclareUnicodeCharacter{00A0}{~}
+%% /Essential
+\def \companyName	{}
+\def \overskrift	{}
+
+\usepackage{fullpage}			% Less margin
+\usepackage{geometry}
+\usepackage{fancyhdr}			% Fancy headers and footers.
+\usepackage{graphicx}			% pics etc.
+\usepackage{hyperref}			% \href
+\usepackage{multimedia}			% Multimedia stuff... media9 is also an option... haven't explored it yet.
+\usepackage{hhline}				% for double underline
+\usepackage{advdate}			% Date manipulation
+\usepackage[table]{xcolor}		% Coloring spreadtab row's
+\usepackage{tikz}
+\usepackage[framemethod=tikz]{mdframed}	% Coloring info boxes
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{soul}				% Strikeout \st{Striked out text}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{comment}
+\newcommand{\cmark}{\ding{51} }% http://tex.stackexchange.com/questions/42619/x-mark-to-match-checkmark
+\newcommand{\xmark}{\ding{55} }% http://tex.stackexchange.com/questions/42619/x-mark-to-match-checkmark
+
+% used to fix width in a tabular... example: \begin{tabular}{|c|c|L{3cm}}content... \end{tabular} 
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Defines hyperlink colors etc\ldots incl. \ref{}
+\hypersetup{colorlinks=true,linkbordercolor=red,linkcolor=blue,pdfborderstyle={/S/U/W 1}}
+
+\def \timeRabat		{0.9} 		% 1-0.procentsats
+\def \timeRabatOld	{0.8}
+\def \SynackProfit			{1.15}
+\def \SynackProfitLicens	{1.05}
+\def \timePris				{775}
+\def \timePrisOld			{650}
+\def \timePrisCEPH			{1200}
+\def \timePrisKontrakt		{698}
+\def \timePrisKontraktOld	{520}
+\def \GATT					{1.025}
+\def \TAKSGebyr				{30}
+\def \SynackLønUdgifter		{187.50}
+\def \LicenseSRVCAL			{1250}		% Købs pris for Server CAL licenser til 2012R2 - 20160916
+
+% Navne
+\def \DES					{Dávur Eyðunsson Sørensen}
+\def \HEJ					{Heðin Ejdesgaard Møller}
+\def \LDH					{Lasse Dreier Hansen}
+\def \SIK					{Svend Ingi Krosstein}
+\def \JHTJ					{Johannes H. T. Johansen}
+
+% E-Mails
+\def \MAILDES				{des@synack.fo}
+\def \MAILHEJ				{hej@synack.fo}
+\def \MAILLDH				{ldh@synack.fo}
+\def \MAILSIK				{sik@synack.fo}
+\def \MAILJHTJ				{Johs.helm@Hotmail.com}
+
+% Hovedkontakt
+\def \SAKONTAKT				{
+			Telefon: 20 11 11 			\\
+			Heimasíða: www.synack.fo 	\\
+			T-Post: synack@synack.fo 	\\
+		}
+\def \SAADDR				{
+			Synack sp/f 				\\
+			Kastalag 7 					\\
+			FO-470 Eiði 				\\		
+		}
+\geometry{
+	a4paper,
+	portrait,
+	total={210mm,297mm},
+	left=20mm,
+	right=20mm,
+	top=20mm,
+	headheight=25mm,
+	bottom=30mm,
+	bindingoffset=0mm,
+	heightrounded
+}
+
+\renewcommand{\contentsname}{Innihaldsyvirlit}
+\newcommand{\head}[1]{\textcolor{white}{\textbf{#1}}}
+\newcommand{\headcolor}[2]{\rowcolor{#1!#2}}
+
+\graphicspath{ {logo/} }	% Defines path for images
+\DeclareGraphicsExtensions{.png,.jpg}
+
+\hypersetup{ pdfborder = {0 0 0} } 			% Removes borders around ToC links
+
+\fancypagestyle{SYNACKFOOTER}{
+	\fancyfoot{}
+	\renewcommand\headrulewidth{0.0pt}
+%	\fancyfoot[C]{\includegraphics[scale=0.15]{synack.png}}
+}
+\fancypagestyle{SYNACKSALEFOOTER}{
+	\fancyfoot{}
+	\renewcommand\headrulewidth{0pt}
+	\fancyfoot[L]{
+		\SAADDR		}
+	\fancyfoot[C]{
+			Samband: \JHTJ 				\\
+			Beinleiðis Telefon nr.: 77 11 10 	\\
+			T-Post: \MAILJHTJ 			\\ }
+	\fancyfoot[R]{
+			\SAKONTAKT	}
+}
+\fancypagestyle{SYNACKSALEFOOTER_DK}{
+	\fancyfoot{}
+	\renewcommand\headrulewidth{0pt}
+	\fancyfoot[L]{
+		Århus-Tech 			\\
+		IT-Supporter		\\}
+	\fancyfoot[C]{
+		  	\JHTJ			\\}
+	\fancyfoot[R]{
+		 	\MAILJHTJ		\\}
+}
+\fancypagestyle{SYNACKSALEFOOTER_EN}{
+	\fancyfoot{}
+	\renewcommand\headrulewidth{0pt}
+	\fancyfoot[L]{
+		\SAADDR		}
+	\fancyfoot[C]{
+			Contact: \HEJ 				\\
+			Direct Phone nr.: +298 77 11 10 	\\
+			E-Mail: \MAILHEJ	 		\\ }
+	\fancyfoot[R]{
+			Phone: +298 20 11 11 		\\
+			Website: www.synack.fo 		\\
+			E-Mail: synack@synack.fo 	\\}
+}
+\fancypagestyle{SYNACKSALEFOOTER_DES}{
+	\fancyfoot{}
+	\renewcommand\headrulewidth{0pt}
+	\fancyfoot[L]{
+		Synack sp/f 	\\
+		Kastalag 7 		\\
+		FO-470 Eiði 	\\ }
+	\fancyfoot[C]{
+		Samband: Dávur Eyðunsson Sørensen 	\\
+		Beinleiðis Telefon nr.: 77 11 14 	\\
+		T-Post: des@synack.fo 	\\ }
+	\fancyfoot[R]{
+		Telefon: 20 11 11 			\\
+		Heimasíða: www.synack.fo 	\\
+		T-Post: synack@synack.fo 	\\}
+}
+\fancypagestyle{SYNACKSALEFOOTER_SIK_EN}{
+	\fancyfoot{}
+	\renewcommand\headrulewidth{0pt}
+	\fancyfoot[L]{
+		Synack sp/f 						\\
+		Kastalag 7 							\\
+		FO-470 Eiði 						\\ }
+	\fancyfoot[C]{
+		Contact: \DES	 	\\
+		Direct Phone nr.: +298 77 11 12 	\\
+		E-Mail: hej@synack.fo 				\\ }
+	\fancyfoot[R]{
+		Telefon: +298 20 11 11 				\\
+		Website: www.synack.fo 				\\
+		E-Mail: synack@synack.fo 			\\}
+}
+\fancypagestyle{SYNACKSALEFOOTER_SIK}{
+	\fancyfoot{}
+	\renewcommand\headrulewidth{0pt}
+	\fancyfoot[L]{
+		Synack sp/f 						\\
+		Kastalag 7 							\\
+		FO-470 Eiði 						\\ }
+	\fancyfoot[C]{
+		Kontakt: Svend Ingi Krosstein	 	\\
+		Beinleiðis Telefon nr.: 77 11 12 	\\
+		T-Post: sik@synack.fo 				\\ }
+	\fancyfoot[R]{
+		Telefon: 20 11 11 					\\
+		Heimasíða: www.synack.fo 			\\
+		T-Post: synack@synack.fo 			\\}
+}
+\fancypagestyle{SYNACKSALEFOOTER_SIK_EN}{
+	\fancyfoot{}
+	\renewcommand\headrulewidth{0pt}
+	\fancyfoot[L]{
+		Synack sp/f 						\\
+		Kastalag 7 							\\
+		FO-470 Eiði 						\\ }
+	\fancyfoot[C]{
+		Contact: Svend Ingi Krosstein	 	\\
+		Direct Phone nr.: +298 77 11 12 	\\
+		E-Mail: hej@synack.fo 				\\ }
+	\fancyfoot[R]{
+		Telefon: +298 20 11 11 				\\
+		Website: www.synack.fo 				\\
+		E-Mail: synack@synack.fo 			\\}
+}
+
+\renewcommand\headrule{
+	\begin{center}
+	\begin{minipage}{0.2\textwidth}
+	\begin{flushright}
+	\end{flushright}
+	\end{minipage}
+	\begin{minipage}{0.55\textwidth}
+		\centering \Huge \companyName \normalsize
+	\end{minipage}
+	\begin{minipage}{0.2\textwidth}
+	\begin{flushleft}
+%		\begin{tikzpicture} 
+%			\node {\includegraphics[width=1\textwidth] {synack.png}};
+%		\end{tikzpicture}
+	\end{flushleft}
+	\end{minipage}
+	\begin{minipage}{1\textwidth}
+		\hrule width \hsize \kern 1mm \hrule width \hsize height 2pt
+		\vspace*{2mm} \centering \large \overskrift \normalsize \vspace*{5mm}
+	\end{minipage}
+	\end{center}
+
+}
+
+% Default Fonts
+\usefont{T1}{cmr}{m}{n}

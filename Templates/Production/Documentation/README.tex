@@ -1,0 +1,28 @@
+\input{preamble}
+
+\def \overskrift    {README - Docs explanations}          % Overskrift er sat i CompanyName
+\def \CompanyName   {Template} % Ville have overskriften over barren..
+\def \companyName   {\CompanyName}
+
+\begin{document}
+	\author{Heðin Ejdesgaard Møller}
+	\begin{center}
+		\thispagestyle{SYNACKSALEFOOTER}
+		\vspace*{25mm}
+	\end{center}
+
+
+	\section{Regex}
+	\subsection{nmap}
+	scan network segment and overwrites NetDemo.nmap with output.	\\
+	nmap -sP 10.0.23.0/24 > NetDemo.nmap
+	\subsubsection{one-liner}
+	Demo one-liner to parse above nmap scan, to import it in .tex table. \\
+	cat NetDemo.nmap |grep 10.0.23|awk '{print $3"\t\t\t& "$5"\t\\\\"}'|sed s/10.0.23/\\\\NET/g
+
+	\section{Credential creation}
+	Generate 10 passwords of length 14 including a-zA-Z0-9 using /dev/random and excluding ambigious chars (0O etc)
+	pwgen -c -n -s -B 14 10
+
+
+\end{document}

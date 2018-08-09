@@ -1,0 +1,13 @@
+centos-7
+
+yum installs
+vim
+rsync
+htop
+
+
+credentials:
+uname: root
+pass: ssh-key only
+
+

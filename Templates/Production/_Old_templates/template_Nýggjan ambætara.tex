@@ -1,0 +1,234 @@
+\input{preamble}
+\input{preamble_tilbud}
+\usepackage{expl3}
+\usepackage{xparse}
+
+\def \overskrift	{Tilboð uppá nýggjan ambætara}			% Overskrift er sat i CompanyName
+\def \CompanyName	{IR Lastbilar} % Ville have overskriften over barren..
+\def \companyName	{\CompanyName}
+\def \dealExpire 	{17. apríl 2017}  %{\DayAfter[14]}
+%\renewcommand{\contentsname}{Indholdsfortegnelse}
+\ExplSyntaxOn
+\NewDocumentCommand{\roundnearfive}{m}{%
+	\tl_set:Nn \l_tmpa_int {\int_mod:nn {#1}{5}}
+	\int_compare:nTF {\l_tmpa_int == 0}
+	{#1}
+	{\int_eval:n { #1 + ( 5 - \l_tmpa_int ) } }
+}
+\ExplSyntaxOff
+
+
+
+% % % % Hardware 
+\def \ServerFragt		{1500}
+\def \ServerPris		{26525}	% Server pris + 5 års garanti
+\def \ServerNavn		{Tower}
+\def \ServersWin		{3}		% Antal windows VM's der skal vedligeholdes.
+\def \ServersHV			{1}		% Antal Hypvervisors der skal vedligeholdes.
+\def \APPCount			{4}		%% ADDS, DNS, DHCP, fil & backup
+\def \LeasingLoebetid	{36}	% Løbetid i mdr.
+\def \LicenseWin		{2}		% mod2 of \ServersWin, rounded up.
+\def \LicenseAV			{9700}	% Samlet pris for X brugere
+\def \prisStd			{880}
+\def \prisKontrakt		{0.8}	% Kontrakt pris multiplier
+\def \prisOvertid		{1.5}	% Overtids multiplier
+\def \prisSSD			{2125}	% Options pris på ssd'erne
+\def \prisSSDTB			{4080}	% Options pris på 960GB SSD'er
+\def \prisRAM			{2560}	% Pris for 1*16GB RAM block
+\def \prisUPS			{11105}	% Prisen er baseret på tilbud fra LM.
+\def \prisFW			{6500}	% Firewall pris
+\def \prisLicWin		{4995}	% Windows server licens
+\def \prisLicCAL		{1420} 	% Windows server user cal ell server cal.
+
+
+%Derek bergmotors.fo
+
+% % % % AD
+\def \antalBrugere	{4}		% afrund optil nærmeste mod5
+\def \ServerCALPack	{\roundnearfive{\antalBrugere}}
+\def \antalGBcopy	{100}
+\def \antalKlienter	{4}
+% % % % Backup
+\def \RBackupGB		{100}		% pakke størrelse
+\def \RBackupPris	{4}			% pris pr. GB
+
+% % % % Arbejde
+\def \arbejdsTimer	{36}
+
+% % % % Virksomheder der deltager i tilbudet
+\def \SYNACK		{\textit{(Synack)}} 
+\def \SYNACKNP		{Synack }
+
+
+\begin{document}
+\author{Heðin Ejdesgaard Møller}
+\vspace*{-14mm}
+\begin{center}
+    \thispagestyle{SYNACKSALEFOOTER}
+    \vspace*{25mm}
+    \tableofcontents
+    \vfill
+    Tilboðið er galdandi til \dealExpire
+    \vspace*{20mm}
+    \newpage
+\end{center}
+\section{Yvirskipaða málið í tilboðnum}
+Endamálið við tilboðnum er at dagføra fysisku útgerðina, við tí endamáli at koyra Navision.
+
+\section{Nær kann arbeiðið byrja}
+Útgerðin kemur til landið áleið 2 vikur eftir at tilboðið er góðtikið. \\
+Uppstigan av skipanum vm. kann byrja áleið 3 vikur eftir at tilboðið er góðtikið. \\
+
+\section{Prísur}
+Vit hava tvey uppskot.
+\begin{enumerate}
+	\item \textbf{Keyp} av ambætara við møguleika fyri tænastuavtalu.
+	\item \textbf{Avgjald \& Tænastuavtala}, har ambætari og "vanligt viðlíkahald" er umfatað av einum føstum gjaldi hvønn mánað. \\
+	- Útgreining av vanligt viðlíkahald sæst í sektión \ref*{FS_SERVICEAVT}
+\end{enumerate}
+Í báðum førum verður installatión og uppsetan løgd afturat. \vspace*{6mm}
+
+\subsection{Keyp av ambætara}
+	\rowcolors{2}{white}{gray!25}
+	\begin{spreadtab}[\STsavecell\ServerPrisFinal{d3}\STsavecell\ServerCALLicenses{d5}\STsavecell\ServerLicenses{d6}\STsavecell\ServiceMDRPris{c14}\STsavecell\prisMdrSvcOgRB{c15}]{{tabular}{l!{\vrule height 3.5mm}l|r|r}} 
+		\rowcolor{black!75}
+		@ \multicolumn{4}{c}{\head{Útgerð og uppsetan}} 																																		\\ \rowcolor{gray!50}
+		@ \multicolumn{1}{l|}{\textbf{Navn}}			& @ \textbf{Lýsing}						& @\textbf{Mánarðsgjald}		& @ \textbf{Eindargjald}										\\ \hline
+		@ Ambætari - Útgreining í sektión \ref{FS_SERVER}& @ \ServerNavn						&								& (((\ServerPris+\ServerFragt+(1*\prisSSD))*\GATT)+\TAKSGebyr)*\SynackProfit \\
+		@ UPS - \textit{rakstur av tilboð í 2 tímar}	& @ Frá Leif Mohr					    &								& \prisUPS														\\
+		@ \LicenseWin*Windows server 2012R2 			& @ 1. stk. við í Ambætara prís			&								& (\LicenseWin-1)*\prisLicWin								\\
+		@ Servara CAL licenspakkar smb. sektón \ref{TM_SERVER}	& (\antalBrugere/5)				&								& [-2,0]*\prisLicCAL*\SynackProfitLicens						\\
+		@ Firewall appliance (pfSense)				 	& @ Við uppsetan						&								& \prisFW															\\ \hline
+		@ Fjaravritan									& @ Pakki á \RBackupGB GB, prís pr. mánað & \RBackupGB*\RBackupPris		&																\\
+		@ Arbeiði										& @ Uppsetan							&								& \arbejdsTimer*\prisStd*\prisKontrakt							\\ \hline \rowcolor{black!35}
+		@ \multicolumn{2}{l|}{@ \textsc{Útgerð og uppseting}}									& sum(c2:[0,-1])				& sum(d2:[0,-1])												\\ \hline \hhline{~~--}
+		@ \multicolumn{4}{c}{\textbf{\huge+}} 																																					\\
+		\rowcolor{black!75}
+		@ \multicolumn{4}{|c|}{\head{Tænastuavtala}} 																																			\\
+		\rowcolor{gray!50}
+		@ \multicolumn{1}{l|}{\textbf{Navn}}			& @ \textbf{Lýsing}						& @ \textbf{Mánarðsgjalds}		& @ \textbf{Eindarprísur}										\\ \hline
+		@ Tænastuavtala 								& @ Prísur pr. mánað.					& ((\prisStd*\prisKontrakt)*(\ServersWin+\ServersHV)+100)&										\\ \hline
+		\rowcolor{black!35}
+		@ \multicolumn{2}{r|}{\textsc{Tilsamans fyri uppseting og fyrsta mánað}}				& sum([0,-5]:[0,-1])			& [0,-5]														\\ \hline \hhline{~~--}
+	\end{spreadtab}
+\vspace*{6mm}
+\subsection{Tænastuavtala \& Avgjald}
+\begin{spreadtab}[\STsavecell\LeasingMDRPris{c3}]{{tabular}{l!{\vrule height 3.5mm}l|r|r}} \rowcolor{black!75}
+	@ \multicolumn{4}{|c|}{\head{Tænastuavtala}} 																																				\\
+	\rowcolor{gray!50}
+	@ \multicolumn{1}{l|}{\textbf{Navn}}	& @ \textbf{Lýsing}									& @ \textbf{Mánarðsgjald} 		& @ \textbf{Eindarprísur}										\\ \hline
+	@ Tænastuavtala við avdráttum  		    & @ Prísur pr. mánað, yvir 3 ár.					& ((\ServerPrisFinal+\ServerCALLicenses+\ServerLicenses+\prisUPS+\prisFW)/
+																										\LeasingLoebetid)+((\prisStd*\prisKontrakt)*(\ServersWin+\ServersHV)+100)&				\\ % -firewall
+	@ Fjaravritan							& @ Pakki á \RBackupGB GB, prís pr. mánað 			& \RBackupGB*\RBackupPris		&																\\
+	@ Arbeiði								& @ Uppsetan										&								& \arbejdsTimer*\prisStd*\prisKontrakt							\\ \hline \rowcolor{black!35}
+	\rowcolor{black!35}
+	@ \multicolumn{2}{r|}{\textsc{Tilsamans fyri uppseting og fyrsta mánað}}					& sum(c2:[0,-1])				& sum(d2:[0,-1])												\\ \hline \hhline{~~--}
+\end{spreadtab}
+
+\vspace{5mm}
+\noindent
+Ambætarin er ogn hjá \companyName\ aftaná 36 ratir av \LeasingMDRPris. Hereftir minkar mánargjaldi til \prisMdrSvcOgRB\hspace*{0px} og umfatar hettar tænastuavtaluna og fjaravritan.
+\\ \\
+Um ein eyka ambætari og/ella VM skal umsitast, so hækkar prísurin.
+\vspace{5mm}
+\newpage
+\subsection{Tímatakstur}
+\begin{spreadtab}{{tabular}{l!{\vrule height 3.5mm}l|r}} \rowcolor{black!75}
+	@ \multicolumn{3}{|c|}{\head{Tímatakstur - Tænastuavtala}} 																			\\
+	\rowcolor{gray!50}
+	@ \multicolumn{1}{l|}{\textbf{Navn}}	& @ \textbf{Lýsing}							& @ \textbf{Eindarprísur}						\\ \hline
+	@ Fyri arb. ikki umfata tænastuavtalu	& @ Vanligur tíma takstur			(-20\%)	& \prisStd*\prisKontrakt						\\ 
+											& @ Uttanfyri vanliga arbeiðstíð	(-20\%)	& \prisStd*\prisOvertid*\prisKontrakt			\\ \hhline{~--}
+\end{spreadtab}
+
+\section{Option}
+\subsection{Ambætari} \label{TM_SERVER}
+Prísir uppá eyka licensir og komponentum til ambætara. \\
+\rowcolors{2}{gray!25}{white}
+\begin{spreadtab}{{tabular}{l!{\vrule height 3.5mm}l|r}}
+	\rowcolor{gray!50}
+	@ \multicolumn{1}{l|}{\textbf{Navn}}	& @ \textbf{Lýsing}			   				& @ \textbf{Eindarprísur} 						\\ \hline
+	@ Intel S3520 480GB SSD					& @ Intel S3520								& \prisSSD*\SynackProfit						\\
+	@ 16GB RAM modul						& @ Reg. ECC								& \prisRAM*\SynackProfit						\\
+	@ Microsoft Win. server 2012 std. R2 OEM UK	& @ Windows Server licens				& \prisLicWin*\SynackProfitLicens 			\\
+	@ Microsoft User CAL's 5 User OEM.		& @ User CAL's								& \prisLicCAL*\SynackProfitLicens			\\
+\end{spreadtab}
+
+\section{Avrokning}
+\begin{itemize}
+	\item Allir prísir eru uttan meirvirðisgjald.
+	\item Rokning fyri hardware (tólbúnað) verður send tá útgerðin verður bíløgd.
+	\item Rokning fyri arbeiði verður send, tá vit meta at tilboðið er liðugt.
+	\item Allir fakturar hava 14 daga gjaldsfreist.
+	\item Víst verður til vanligu sølu og veitingartreytirnar, í viðheftum skjali í t-postinum.
+\end{itemize}
+
+\newpage
+\section{Fylgiskjøl}
+\subsection{Ambætari - nærri lýsing} \label{FS_SERVER}
+\rowcolors{2}{gray!25}{white}
+\begin{tabular}{c!{\vrule width 0.2mm}l}
+	\rowcolor{gray!50}
+	\textbf{Nøgd}	& \textbf{Lýsing}			\\ \hline
+	1				& \ServerNavn								\\
+	1				& INTEL Xeon E5-2620v4 2,10GHz LGA2011-3 20MB \\
+					& - \textit{Plads til 2 CPU'er}			\\
+	2				& 16GB DDR4 2400MHz Reg. ECC			\\
+					& - \textit{plads til 1TB RAM pr. CPU}	\\
+	3				& Intel S3520 480 GB SSD				\\
+	2				& SuperDOM 16GB SATA3					\\
+	1				& LSI SAS 3008 HBA - Firmware i IT mode	\\
+					& \textbf{5 ára hardware garanti} 		\\ \hline
+\end{tabular} \vspace*{6mm}
+
+\subsection{Tænastuavtala} \label{FS_SERVICEAVT}
+Fyri eina fasta upphædd um mánaðin, fevnur ein tænastuavtala um dagføring, viðlíkahald og yvirvaking av komponentunum í tilboðinum. \\ 
+Hetta fevnur um inniverðandi tilboð sum Synack hevur sett upp. Synack samskipar arbeiði tá ið loysnir frá 3. parti skulu inn á útgerðina, soleiðis, at KT útgerðin koyrur støðugt og er hetta eisini ein partur av tænastuavtaluni. \\
+\textbf{Synack svarar 24/7.}  \\
+
+Tænastuavtalan fevnur um fylgjandi:
+\begin{itemize}
+	\item Dagføring og vanligt viðlíkahald av: \\
+	- \ServersWin\hspace*{0px} Windows servarum.	\\
+	- \ServersHV\hspace*{0px}	hypervisor.
+	\item Yvirvaking av: \\
+	- Øllum virtuellum servarum. 	\\
+	- Øllum fysiskum servarum.		\\
+	- Øllum switchum á sama lokala neti sum servarin. \\
+	- Firewall.
+\end{itemize}
+
+\subsection{Firewall} \label{FS_FW}
+Okkara væl av firewall loysn, gevur møguleika fyri atgongds stýring, 2 faktor VPN og tryggjar lætta yvirvaking av øllum eindum á netinum. \\
+
+
+\subsection{Fjaravritan}
+Fjaravritan er fílbasera og verður send til Danmark kryptera í fylgið føroyskari lóggávu og eftir forskriftinum hjá Dataeftirlitinum. \\ \\
+\SYNACKNP fylgir við um avrit verður tikið og vit kanna við jøvnum millumrúmi, um data kann endurskapast.
+\noindent
+\pagebreak
+\subsection{Arbeiðs- og tíðarætlan}
+Talvan niðanfyri vísir hvørjar arbeiðsuppgávurnar eru og hvussu nógva tíð vit vanta at brúka til hvørja uppgávu. \\
+Prísurin í yvirlitinum omanfyri er roknaður út frá hesi talvuni.\\
+\noindent
+
+\rowcolors{2}{gray!25}{white}
+\begin{spreadtab}{{tabular}{l!{\vrule height 3.5mm}r}}
+	\rowcolor{gray!50}
+	@ \textbf{Uppgávur}										& @ \textbf{Mett tíðarnýtsla í tímum}	\\ \hline
+	@ Uppseting av servara									& \ServersWin								\\
+	@ Installatión av Windows servarum						& 4+(2*\ServersWin)							\\
+	@ Fyrireiking av ymiskum software						& 4*\APPCount								\\ 
+	@ Takað gomlu AD, DNS, DHCP \& fil tænastum niður   	& ((30+10*\antalBrugere)+(30+1*\antalGBcopy)+(30+\antalKlienter*30))/60	\\ % /60 for at få det i timer	% min+stkMin*antal
+	@ Uppsetan av trygdaravritan og test af restore			& 1											\\ \hline
+	@ \textsc{Tilsamans}									& sum(b2:[0,-1])							\\ \hhline{==}
+\end{spreadtab}
+
+
+%\newpage
+%%SQL server 2014? \\
+%Málingarhandlin kører SamNET og bruger Terminal server.. dette kan godt ændres til alm. internet, vpn og onsite nav klient. \\
+%Switche er stadig de gamle 10/100 switche... Skal opgarderes til 1Gbps. \\
+%WiFi skal køre på 2 forskellige netværk... Guest og Produktion. \\
+
+\end{document}

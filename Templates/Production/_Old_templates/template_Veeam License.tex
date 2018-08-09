@@ -1,0 +1,63 @@
+\input{preamble}
+\input{preamble_landscape}
+\input{preamble_tilbud}
+
+\def \companyName {\textbf{Company}}
+\def \licenseToSale{Veeam Backup \& Replication licens - VMware}
+\def \SynackProfit				{1.15}
+\def \att {Hanus Midjord}
+\def \road {}
+\def \post {}
+\def \dealExpire 				{25. August 2015}  %{\DayAfter[14]}
+\def \veeLicense		 		{Annual Maintenance Renewal \\ Veeam Backup \& Replication Enterprise for VMware.}
+\def \veeOneYearAdditional		{1 additional year of Basic maintenance prepaid for \\Veeam Backup Essentials Enterprise 2 socket bundle for Hyper-V}
+\def \veeTwoYearAdditional		{2 additional years of Basic maintenance prepaid for \\Veeam Backup Essentials Enterprise 2 socket bundle for Hyper-V}
+\def \veeTxtAddTwoYrEssEntPlus	{2 additional years of maintenance prepaid for \\Veeam Backup \& Replication Enterprise for VMware.}
+\def \veeUpgText				{Veeam Backup \& Replication Enterprise for VMware \\Upgrade from Veeam Backup \& Replication Standard - Public Sector }
+\def \veeRenewalPrice	{2062}				% Pris for et års renewal teksten i \veeTxtAnnEssEnt hører til denne pris
+\def \veeOneYearPrice	{1856}				% 1 year aditional
+\def \veeTwoYearPrice	{3505}				% 2 year aditional
+\def \veeUpg			{2180}
+\def \SynackProfit		{1.10}
+\newcommand{\specialCell}[2][c]{ %
+	\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+
+\begin{document}
+	\vspace*{-22mm}
+	\begin{tikzpicture} 
+	
+	\node {\includegraphics[width=0.2\textwidth] {synack.png}};
+	\end{tikzpicture}
+	\thispagestyle{SYNACKSALEFOOTER}
+	
+	\begin{center}
+		\noindent 
+		\vspace*{-10mm}\section*{1 Árs Subscription}
+		\begin{spreadtab}{{tabular}{|l|c|l|r|r|}} \hline 
+			@ \textbf{Vøru nummar}		& @ \textbf{Antal}	& @ \textbf{Vørutekst}						& @ \textbf{Prísur pr. Eind} 		& @\textbf{Prísur u/mvg} 	\\ \hline
+			@ V-ESSENT-HS-P01AR-00-VEE	& 1					& @ \specialCell{\veeLicense}				& \veeRenewalPrice * \SynackProfit	& b2*d2						\\ \hline
+			@ \multicolumn{3}{r|}{}																		& @ Samlað Prís						& sum(e2:[0,-1])			\\ \hhline{~~~==}
+		\end{spreadtab} \\[0.5cm] \textbf{\textit{Ella}} \\	\vspace*{-5mm}
+		\section*{2 Árs Subscription}
+		\begin{spreadtab}{{tabular}{|l|c|l|r|r|}} \hline 
+			@ \textbf{Vøru nummar}		& @ \textbf{Antal}	& @ \textbf{Vørutekst}						& @ \textbf{Prísur pr. Eind} 		& @\textbf{Prísur u/mvg} 	\\ \hline
+			@ V-ESSENT-HS-P01AR-00-VEE	& 1					& @ \specialCell{\veeLicense}				& \veeRenewalPrice * \SynackProfit	& b2*d2						\\ \hline
+			@ V-ESSENT-HS-P01YP-00-VEE	& 1					& @ \specialCell{\veeOneYearAdditional}		& \veeOneYearPrice*\SynackProfit	& b3*d3						\\ \hline
+			@ \multicolumn{3}{r|}{}																		& @ Samlað Prís						& sum(e2:[0,-1])			\\ \hhline{~~~==}
+		\end{spreadtab} \\[0.5cm] \textbf{\textit{Ella}} \\ \vspace*{-5mm}
+		\section*{3 Árs Subscription}
+		\begin{spreadtab}{{tabular}{|l|c|l|r|r|}} \hline 
+			@ \textbf{Vøru nummar}		& @ \textbf{Antal}	& @ \textbf{Vørutekst}						& @ \textbf{Prísur pr. Eind} 		& @\textbf{Prísur u/mvg} 	\\ \hline
+			@ V-ESSENT-HS-P01AR-00-VEE	& 1					& @ \specialCell{\veeLicense}				& \veeRenewalPrice * \SynackProfit	& b2*d2						\\ \hline
+			@ V-ESSENT-HS-P02YP-00-VEE	& 1					& @ \specialCell{\veeTwoYearAdditional}		& \veeTwoYearPrice * \SynackProfit	& b3*d3						\\ \hline
+			@ \multicolumn{3}{r|}{}																		& @ Samlað Prís						& sum(e2:[0,-1])			\\ \hhline{~~~==}
+		\end{spreadtab}
+	\end{center}
+	Tilboðið er galdandi til \dealExpire \\
+	Víst verður til vanligðu sølu og veitingartreytir, sí viðheft skjal í t-post.
+	
+	
+	\section*{Avrokning}
+	Allir prísir eru uttan meirvirðisgjald. \\
+	Gjaldsfreistin er 14 dagar.
+\end{document}

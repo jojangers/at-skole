@@ -1,0 +1,105 @@
+\input{preamble}
+\input{preamble_tilbud}
+\usepackage{ifthen}
+
+
+\def \overskrift    {Server Documentation}          % Overskrift er sat i CompanyName
+\def \CompanyName   {Synack sp/f} % Ville have overskriften over barren..
+\def \companyName   {\CompanyName}
+\def \ServerName	{DEMO}
+\def \VM			{false}
+\def \External		{true}		% 3. Party contact
+
+\begin{document}
+	\author{Heðin Ejdesgaard Møller}
+	\begin{center}
+		\thispagestyle{SYNACKSALEFOOTER}
+		%  \vspace*{25mm}
+		%   \tableofcontents
+		%  \vfill
+		%   \newpage
+	\end{center}
+	
+	\section*{Contact}
+	\subsection*{Primary}
+	\begin{tabular}[r]{|ll|} \hline
+		Name:				& \\
+		Phone:				& \\
+		Mobile:				& \\
+		E-Mail:				& \\ \hline
+		\multicolumn{2}{c}{}	\\ \hline
+		\multicolumn{2}{|c|}{Technical}	\\
+		Name:				& \\
+		Phone:				& \\
+		Mobile:				& \\
+		E-Mail:				& \\ \hline
+	\end{tabular}
+	\ifthenelse{\equal{\External}{true}}{
+		\subsection*{3. party management}
+		\begin{tabular}[r]{|ll|} \hline
+			Name:				& \\
+			Phone:				& \\
+			Mobile:				& \\
+			E-Mail:				& \\ \hline
+		\end{tabular}
+	}
+	{
+		% false
+	}
+	
+	\section{\ServerName}
+	\subsection{Credentials}
+	\begin{tabular}{|l|l|l|}		\hline
+		\textbf{Description}	& \textbf{Uername}	& \textbf{Password}	\\ \hline
+		Local Admin				& Administrator		& ???? 				\\ \hline
+	\end{tabular}
+	
+	\subsection{Network}
+	\begin{tabular}{|l|l|}		\hline
+		\textbf{Description}	& \textbf{IP address}	\\
+		IP Address				& 				\\
+		Default GW				&  /24			\\ \hline
+	\end{tabular}
+	
+	\vspace*{5mm}\noindent
+	\begin{tabular}{|l|l|l|}	\hline
+		\multicolumn{3}{|c|}{\textbf{Static routes}} \\ \hline
+		\textbf{Source}		& \textbf{Destination}	& \textbf{via}	\\
+		10.1.2.0/24			& 172.16.0.0/24			& 10.1.2.1		\\ \hline
+	\end{tabular}
+	
+	\subsection{Services}
+	\begin{tabular}{|l|l|l|}		\hline
+		\textbf{Service name}	& \textbf{Description}				\\
+		ADDS					& Domain controller					\\
+		DNS						& DNS Server for lsdom.fo			\\
+		DHCP					& DHCP Server for x.x.x.x scopes	\\ \hline
+	\end{tabular}
+	
+	
+	\ifthenelse{\equal{\VM}{true}}{
+		\section{Physical Hardware}		% Fysisk server
+		\begin{tabular}{|l|l|l|}		\hline
+			CPU				& 	\\
+			RAM				& 	\\
+			PSU Redundans?	& True	\\
+			NIC antal		& 	\\ \hline
+		\end{tabular}
+		
+	}{
+	\section{Virtual Hardware}
+	\begin{tabular}{|l|l|l|}		\hline
+		CPU				& 	\\
+		RAM				& 	\\
+		PSU Redundans?	& True	\\
+		NIC antal		& 	\\ \hline
+	\end{tabular}
+}
+
+%\subsection*{IPMI}
+%\begin{tabular}{|l|l|l|}		\hline
+%	\textbf{Description}	& \textbf{Uername}	& \textbf{Password}	\\ \hline
+%	Service account			& veeamService		& ???? 			\\
+%\end{tabular}
+
+\end{document}

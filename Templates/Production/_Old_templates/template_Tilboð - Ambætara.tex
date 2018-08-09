@@ -1,0 +1,199 @@
+\input{preamble}
+\input{preamble_tilbud}
+\usepackage{expl3}
+\usepackage{xparse}
+
+\def \overskrift	{Tilboð uppá nýggjan ambætara}			% Overskrift er sat i CompanyName
+\def \CompanyName	{Litaval} % Ville have overskriften over barren..
+\def \companyName	{\CompanyName}
+\def \dealExpire 	{3. Okt. 2016}  %{\DayAfter[14]}
+\ExplSyntaxOn
+\NewDocumentCommand{\roundnearfive}{m}{%
+	\tl_set:Nn \l_tmpa_int {\int_mod:nn {#1}{5}}
+	\int_compare:nTF {\l_tmpa_int == 0}
+	{#1}
+	{\int_eval:n { #1 + ( 5 - \l_tmpa_int ) } }
+}
+\ExplSyntaxOff
+
+
+
+% % % % Hardware 
+\def \ServerFragt	{1500}
+\def \ServerPris	{29000}
+\def \ServerNavn	{2U Rack}
+\def \ServersWin	{3}
+\def \ServersHV		{1}
+\def \APPCount		{4} %% ADDS, DNS, DHCP, SQL Server
+\def \LeasingLoebetid	{36}	% Løbetid i mdr.
+\def \LicenseWinPrice{5025}
+\def \LicenseWin	{2}			% mod2 of \ServersWin, rounded up.
+%Derek bergmotors.fo
+
+% % % % AD
+\def \antalBrugere	{15}		% afrund optil nærmeste mod5
+\def \ServerCALPack	{\roundnearfive{\antalBrugere}}
+\def \antalGBcopy	{300}
+\def \antalKlienter	{10}
+% % % % Backup
+\def \RBackupGB		{350}		% pakke størrelse
+\def \RBackupPris	{3.5}			% pris pr. GB
+
+% % % % Arbejde
+\def \arbejdsTimer	{44}
+
+% % % % Virksomheder der deltager i tilbudet
+\def \SYNACK		{\textit{(Synack)}} 
+\def \SYNACKNP		{Synack }
+
+
+
+
+
+\begin{document}
+\author{Heðin Ejdesgaard Møller}
+\vspace*{-20mm}
+\begin{tikzpicture}
+	\node {\includegraphics[width=0.2\textwidth] {synack.png}};
+\end{tikzpicture}
+\begin{center}
+
+    \thispagestyle{SYNACKSALEFOOTER}
+    \vspace*{25mm}
+    \tableofcontents
+    \vfill
+    \newpage
+\end{center}
+\section{Yvirskipaða málið í tilboðnum}
+Endamálið við tilboðum er at dagføra fysisku útgerðina, við tí fyri eyga at kunna dagføra tykkara skipanir.
+
+\section{Nær kann arbeiðið byrja}
+Útgerðin kemur til landið áleið 2 vikur eftir at tilboðið er góðtikið. \\ 
+Uppstigan av skipanum vm. kann byrja áleið 3 vikur eftir at tilboðið er góðtikið. \\
+
+\section{Prísyvirlit}
+Vit hava tvey uppskot.
+\begin{enumerate}
+	\item Keyp av ambætara við møguleika fyri service avtalu.
+	\item Service avtala, har ambætari og "vanligt viðlíkahald" er umfatað av einum føstum gjaldi hvønn mánað. \\
+	- Útgreining av vanligt viðlíkahald sæst í sektión \ref*{FS_SERVICEAVT}
+\end{enumerate}
+Í báðum førum verður installatión og uppsetan løgd afturat. \vspace*{6mm}
+
+\subsection{Keyp av ambætara}
+	\rowcolors{2}{gray!25}{white}
+	\begin{spreadtab}[\STsavecell\ServerPrisFinal{c2}\STsavecell\ServerWinLicenses{c3}\STsavecell\ServerLicenses{c4}]{{tabular}{l!{\vrule height 3.5mm}l|r}}
+		\rowcolor{gray!50}
+		@ \multicolumn{1}{l|}{\textbf{Navn}}			& @ \textbf{Lýsing}										& @ \textbf{Prísur} 											\\ \hline
+		@ Ambætari - Útgreining í sektión \ref{FS_SERVER}& @ \ServerNavn										& (((\ServerPris+\ServerFragt)*\GATT)+\TAKSGebyr)*\SynackProfit \\
+		@ Windows server licensir						& @ \LicenseWin*Windows servari 2012R2 std.				& \LicenseWin*\LicenseWinPrice*\SynackProfitLicens				\\
+		@ Servara CAL licenspakkar smb. sektón \ref{TM_SERVER}	& (\antalBrugere/5)								& b4*\LicenseSRVCAL*\SynackProfitLicens							\\
+		@ Arbeiði										& @ Væntandi prísur fyri uppsetan						& \arbejdsTimer*650												\\ \hline % \hhline{---} 
+		@ \multicolumn{1}{l|}{}							& \multicolumn{1}{l|}{@ \textsc{Tilsamans u/mvg}}		& sum(c2:[0,-1])												\\ \hhline{~==}
+	\end{spreadtab}
+\vspace*{6mm}
+\subsubsection{Service avtala}
+	\rowcolors{2}{gray!25}{white}
+	\begin{spreadtab}[\STsavecell\ServiceMDRPris{c2}]{{tabular}{l!{\vrule height 3.5mm}l|r}}
+		\rowcolor{gray!50}
+		@ \multicolumn{1}{l|}{\textbf{Navn}}			& @ \textbf{Lýsing}										& @ \textbf{Prísur} 											\\ \hline
+		@ Service avtala 								& @ Prísur pr. mánað, yvir 3 ár.						& (650*(\ServersWin+\ServersHV))								\\ \hline
+		@ Arbeiði uttanfyri service avtalu				& @ Vanligur tímatakstur								& 650															\\ 
+														& @ Uttanfyri vanliga arbeiðstíð						& 975															\\ \hhline{~--}
+	\end{spreadtab}
+\vspace*{6mm}
+\subsection{Service avtala \& Leasing}
+\begin{spreadtab}[\STsavecell\LeasingMDRPris{c2}]{{tabular}{l!{\vrule height 3.5mm}l|r}}
+	\rowcolor{gray!50}
+	@ \multicolumn{1}{l|}{\textbf{Navn}}			& @ \textbf{Lýsing}										& @ \textbf{Prísur} 											\\ \hline
+	@ Service avtala 								& @ Prísur pr. mánað, yvir 3 ár.						& ((\ServerPrisFinal+\ServerWinLicenses+\ServerLicenses)/\LeasingLoebetid)+(650*(\ServersWin+\ServersHV))	\\ \hline
+	@ Arbeiði										& @ Væntandi prísur fyri uppsetan						& \arbejdsTimer*650												\\ \hline
+	@ Arbeiði uttanfyri service avtalu				& @ Vanligur tímatakstur								& 650															\\ 
+													& @ Uttanfyri vanliga arbeiðstíð						& 975															\\ \hhline{~--}
+\end{spreadtab} \\ \\
+Ambætarin er ogn hjá Litaval aftaná 36 ratir av \LeasingMDRPris. Hereftir minkar mánargjaldi til \ServiceMDRPris\hspace*{0px} og umfatar hettar service avtaluna.
+\newpage
+\section{Tilvalsmøguleikar}
+Fjaravritan er fílbaserað og verður send av landinum á tryggan hátt og eftir forskriftinum hjá Dátueftirlitinum.
+\subsection{Fjaravritan}
+\SYNACKNP fylgir við um avrit verður tikið og vit kanna við jøvnum millumrúmi, um data kann endurskapast. \\ \\
+\noindent
+\rowcolors{2}{gray!25}{white}
+\begin{spreadtab}{{tabular}{l!{\vrule height 3.5mm}l|r}}
+	\rowcolor{gray!50}
+	@ \multicolumn{1}{l|}{\textbf{Navn}}	& @ \textbf{Lýsing}										& @ \textbf{Prísur} 											\\ \hline
+	@ Fjaravritan			& @ Pakki á \RBackupGB GB, prís pr. mánað				& \RBackupGB*\RBackupPris										\\ \hline
+	@ \multicolumn{1}{l|}{}					& \multicolumn{1}{l|}{@ \textsc{Tilsamans u/mvg}}		& sum(c2:[0,-1])												\\ \hhline{~==}
+\end{spreadtab}
+\vspace*{6mm}
+
+\subsection{Tilval til ambætara} \label{TM_SERVER}
+\rowcolors{2}{gray!25}{white}
+\begin{spreadtab}{{tabular}{l!{\vrule height 3.5mm}l|r}}
+	\rowcolor{gray!50}
+	@ \multicolumn{1}{l|}{\textbf{Navn}}	& @ \textbf{Lýsing}										& @ \textbf{Prísur} 											\\ \hline
+	@ 480GB SSD								& @ Samsung M863 series									& 1970*\SynackProfit 											\\
+	@ Microsoft Win. server 2012 std. R2 OEM UK	& @ Windows Server licens							& \LicenseWinPrice*\SynackProfitLicens 							\\
+	@ Microsoft Server CAL's 5 User OEM.	& @ Server CAL's										& \LicenseSRVCAL*\SynackProfitLicens							\\
+\end{spreadtab}
+\vspace*{6mm}
+\section{Avrokning}
+\begin{itemize}
+	\item Allir prísir eru uttan meirvirðisgjald.
+	\item Fakturi fyri hardware (tólbúnað) verður sendur tá útgerðin verður bíløgd.
+	\item Fakturi fyri arbeiði verður sendur, tá vit meta at tilboðið er liðugt.
+	\item Allir fakturar hava 14 daga gjaldsfreist.
+	\item Víst verður til vanligu sølu og veitingartreytirnar, í viðheftum skjali í t-postinum.
+\end{itemize}
+
+\newpage
+\section{Fylgiskjøl}
+\subsection{Ambætari - nærri lýsing} \label{FS_SERVER}
+\rowcolors{2}{gray!25}{white}
+\begin{tabular}{c!{\vrule width 0.2mm}l}
+	\rowcolor{gray!50}
+	\textbf{Nøgd}	& \textbf{Lýsing}			\\ \hline
+	1				& 2U Rack							\\
+	1				& Intel Xeon E5-2630Lv4, 2.2GHz 10-Core CPU - TPD 55W	\\
+	4				& 16GB DDR4 2133MHz Reg. ECC		\\
+	3				& SM863 series 480GB SSD			\\
+	2				& SuperDOM 16GB SATA3				\\
+	1				& LSI SAS 3008 HBA - Firmware í IT mode	\\
+\end{tabular} \vspace*{6mm}
+
+\subsection{Service avtala} \label{FS_SERVICEAVT}
+Service avtalan umfatar fylgjandi:
+\begin{itemize}
+	\item Dagføringar:\\
+	- Dagføring av \ServersWin\hspace*{0px} servarum.	\\
+	- Dagføring av \ServersHV\hspace*{0px}	hypervisor.
+	\item Yvirvaking: \\
+	- Av øllum virtuellum ambætarum. 	\\
+	- Av øllum fysiskum ambætarum.		\\
+	- Av øllum switchum á sama lokal neti sum ambætararnir. \\
+	- Av firewall.
+\end{itemize}
+\subsection{Arbeiðs- og tíðarætlan}
+Talvan niðanfyri vísir hvørjar arbeiðsuppgávurnar eru og hvussu nógva tíð vit vænta at brúka til hvørja uppgávu. \\
+Prísurin í yvirlitinum omanfyri er roknaður út frá hesi talvuni.\\ \\
+\noindent
+\rowcolors{2}{gray!25}{white}
+\begin{spreadtab}{{tabular}{l!{\vrule height 3.5mm}r}}
+	\rowcolor{gray!50}
+	@ \textbf{Uppgáva}									& @ \textbf{Væntað tíma nýtsla}				\\ \hline
+	@ Uppsetan av ambætara								& \ServersWin											\\
+	@ Installatión av Windows servarum					& 4+(2*\ServersWin)							\\
+	@ Klárgering av skipanum							& 4*\APPCount								\\ 
+	@ Avtøka av gomlum AD, DNS, DHCP \& Fíl skipanir	& ((30+10*\antalBrugere)+(30+1*\antalGBcopy)+(30+\antalKlienter*30))/60					\\ % /60 for at få det i timer		% min+stkMin*antal
+	@ Uppsetan av backup skipan og test av restore		& 1											\\ \hline
+	@ \textsc{Tilsamans}								& sum(b2:[0,-1])							\\ \hhline{==}
+\end{spreadtab}
+
+
+%\newpage
+%%SQL server 2014? \\
+%Málingarhandlin kører SamNET og bruger Terminal server.. dette kan godt ændres til alm. internet, vpn og onsite nav klient. \\
+%Switche er stadig de gamle 10/100 switche... Skal opgarderes til 1Gbps. \\
+%WiFi skal køre på 2 forskellige netværk... Guest og Produktion. \\
+
+\end{document}

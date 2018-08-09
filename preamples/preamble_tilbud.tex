@@ -1,0 +1,13 @@
+\usepackage{spreadtab}
+\usepackage{tablefootnote}
+\STsetdecimalsep{,}			% Define decimal seperator in \begin{spreadtab}
+\STautoround*{0}
+
+\usepackage{numprint}
+\npdecimalsign{,}
+%\nprounddigits{2}
+\npthousandsep{.}
+\npthousandthpartsep{}
+% thousands seperator and red negative digits
+\renewcommand\STprintnum[1]{\FPifneg{#1}\color{red}\fi\numprint{#1}}
+

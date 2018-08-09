@@ -1,0 +1,54 @@
+% To be included for working with tikz diagrams, we specify standard shapes here.
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows,fit,backgrounds,positioning,calc}
+
+\geometry{
+	a2paper,
+	portrait,
+%	total={210mm,297mm},
+	left=20mm,
+	right=20mm,
+	top=20mm,
+	headheight=25mm,
+	bottom=30mm,
+	bindingoffset=0mm
+}
+
+% Disks
+\tikzstyle{DISK} = [rectangle, text centered, draw=black]
+\tikzstyle{DISKVERTICAL} = [DISK, minimum width=1cm, minimum height=3cm, node distance=3 cm]
+\tikzstyle{DISKHORIZONTAL} = [DISK, minimum width=3cm, minimum height=1cm, node distance=1 cm]
+
+% Server, Storage
+\tikzstyle{SERVER} = [rectangle, minimum width=3cm, minimum height=7mm, text centered, draw=black]
+\tikzstyle{MGMT} = [SERVER, draw=black, fill=black, text=white]
+\tikzstyle{CEPH} = [SERVER, fill=brown!50]
+\tikzstyle{IGW} = [SERVER, fill=red,minimum width=1cm,yshift=-6mm]
+\tikzstyle{SRV} = [SERVER, fill=gray!50]
+
+% Net
+\tikzstyle{NET} = [rectangle, minimum width=2cm, minimum height=7mm, text centered, draw=black, fill=black!50, rounded corners]
+\tikzstyle{NETPUBLIC} = [NET,fill=blue, text=white]
+\tikzstyle{NETCLUSTER} = [NET, fill=green]
+\tikzstyle{NETISCSI} = [NET, fill=red]
+\tikzstyle{NETOOB} = [NET, fill=black, text=white]
+\tikzstyle{NETPORTS} = [NET]
+\tikzstyle{NETOFF} = [NET, fill=black, text=white]
+\tikzstyle{OFF} = [rectangle, minimum width=2cm, minimum height=7mm, text centered, draw=black, fill=black, text=white]
+
+% Flowchart
+\tikzstyle{basic} = [minimum width=30mm, minimum height=10mm, text width=25mm, text centered, draw=black]
+\tikzstyle{startstop} = [rectangle, rounded corners, basic, fill=red!30]
+\tikzstyle{io} =[trapezium, trapezium left angle=70,trapezium right angle=110, basic, fill=blue!30]
+\tikzstyle{process} = [rectangle, basic, fill=gray!30]
+\tikzstyle{decision} = [diamond, basic, fill=green!30]
+
+% Arrows
+\tikzstyle{arrow} = [draw,thick,->,>=stealth]
+\tikzstyle{arrowPublic} = 	[arrow,blue]
+\tikzstyle{arrowCluster} =	[arrow,green]
+\tikzstyle{arrowOOB} = 		[arrow,black]
+\tikzstyle{arrowISCSI} = 	[arrow,red]
+\tikzstyle{arrowMixed} = 	[arrow,violet]
+
+\tikzstyle{SITES} = [draw,fill=black!30,opacity=0.3,inner sep=2mm]

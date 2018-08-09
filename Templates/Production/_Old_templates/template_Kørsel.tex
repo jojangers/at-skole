@@ -1,0 +1,49 @@
+\input{preamble}
+\input{preamble_tilbud}
+
+\def \kmHQtoSEV 		{53}				% km mellem Synack HQ og SEV HQ
+\def \kmHQtoTN			{51}				% TN generelt
+\def \kmHQtoNorðsetur	{17}				% km mellem Synack HQ og Norðsetur
+\def \kmHQtoPelagos		{38}				% km mellem Synack HQ og Pelagos
+\def \kmHQtoRunavik 	{33}				% km mellem Synack HQ og Runavík
+\def \kmHQtoKG			{48}				% km mellem Synack HQ og Klaksvík
+
+\def \LokationSEV 		{SEV, Landavegur 92}		% SEV HQ
+\def \LokationLSH 		{LSH, Eirargarður 13}		% SEV HQ
+\def \LokationTN		{Tórshavn}				% Generelt til TN
+\def \LokationEiði		{Kastalag 7}				% Synack HQ
+\def \LokationNorðsetur {Hvalvík}
+\def \LokationPelagos 	{Fuglafjørð}
+\def \LokationIT4		{Runavík} 
+\def \LokationTannSpenn	{Klaksvík}
+
+\newcommand{\specialCell}[2][c]{ %
+	\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+
+\begin{document}
+	\thispagestyle{SYNACKSALEFOOTER}
+	\vspace*{-16mm}
+	\begin{tikzpicture} 
+	\node {\includegraphics[width=0.2\textwidth] {synack.png}};
+	\end{tikzpicture}
+	\vspace*{-22mm}
+	\begin{center}	
+		
+		\section*{Kørsel}
+		\Large Heðin Ejdesgaard Møller \normalsize
+		
+		\author{Heðin Ejdesgaard Møller}
+		\section*{2016 - Maj}
+		\begin{spreadtab}{{tabular}{|l|c|l|r|r|}} \hline 
+			@ \textbf{Dato}			& @ \textbf{Ticket Nr.}	& @ \textbf{Start}		& @ \textbf{Destination}	& @ \textbf{Kilometer}	\\ \hline
+			@ Maj. 4, 2016			& @ 437					& @ \LokationEiði		& @ \LokationLSH			& \kmHQtoSEV			\\ \hline
+			@ Maj. 4, 2016			& @ 437					& @ \LokationLSH		& @ \LokationEiði			& \kmHQtoSEV			\\ \hline
+			@ Maj. 5, 2016			& @ 433					& @ \LokationEiði		& @ \LokationLSH			& \kmHQtoSEV			\\ \hline
+			@ Maj. 5, 2016			& @ 433					& @ \LokationLSH		& @ \LokationEiði			& \kmHQtoSEV			\\ \hline
+			@ \multicolumn{3}{r|}{}													& @ Kilometer tilsammen		& sum(e2:[0,-1])		\\ \hhline{~~~--}
+			@ \multicolumn{3}{r|}{}													& @ DKK (km*3.2)			& 3.2*sum([0,-1])		\\ \hhline{~~~==}
+		\end{spreadtab} \\[1.5cm]
+		
+	\end{center}
+	
+\end{document}
